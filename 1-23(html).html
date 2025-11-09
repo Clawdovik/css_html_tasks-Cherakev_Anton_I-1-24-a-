@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEON PUNK HTML - ОСНОВЫ РАЗМЕТКИ</title>
+    <style>
+        /* Общие стили Neon Punk */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #0a0a12;
+            color: #00ffcc;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        /* Стили заголовка */
+        header {
+            background: linear-gradient(90deg, #0a0a12, #1a1a2a, #0a0a12);
+            border: 2px solid #ff00ff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 15px #ff00ff;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #ffcc00;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px #ffcc00;
+        }
+
+        /* Основной контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #1a1a2a;
+            border: 2px solid #00ccff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 0 15px #00ccff;
+        }
+
+        /* Секции */
+        .section {
+            margin-bottom: 40px;
+            border: 1px solid #ff00ff;
+            border-radius: 6px;
+            padding: 20px;
+            background: rgba(10, 10, 18, 0.7);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ff00ff;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        h2 {
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff;
+            font-size: 1.8rem;
+        }
+
+        /* Задачи */
+        .task {
+            background-color: #0a0a12;
+            border: 1px solid #00ffcc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 0 10px #00ffcc;
+            transition: all 0.3s ease;
+        }
+
+        .task:hover {
+            box-shadow: 0 0 20px #00ffcc;
+            transform: translateY(-2px);
+        }
+
+        .task-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #00ccff;
+            text-shadow: 0 0 5px #00ccff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .task-counter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #ff00ff;
+            color: #0a0a12;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+            box-shadow: 0 0 10px #ff00ff;
+        }
+
+        /* Таблицы в стиле Neon */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+            border: 2px solid #00ccff;
+            box-shadow: 0 0 10px #00ccff;
+        }
+
+        table, th, td {
+            border: 1px solid #ff00ff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            color: #00ffcc;
+        }
+
+        th {
+            background: linear-gradient(45deg, #ff00ff, #00ccff);
+            color: #0a0a12;
+            font-weight: bold;
+            text-shadow: 0 0 5px #0a0a12;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 204, 255, 0.1);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 0, 255, 0.2);
+        }
+
+        /* Изображения и SVG */
+        .svg-container {
+            margin: 15px 0;
+            border: 2px solid #ffcc00;
+            padding: 15px;
+            background: #0a0a12;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #ffcc00;
+        }
+
+        /* Ссылки */
+        a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px #00ccff;
+        }
+
+        a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            text-decoration: none;
+        }
+
+        /* Списки */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+            color: #00ffcc;
+        }
+
+        /* Кнопки навигации */
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, #ff00ff, #00ccff);
+            color: #0a0a12;
+            border: none;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #ff00ff;
+        }
+
+        .nav-btn:hover {
+            box-shadow: 0 0 20px #00ccff, 0 0 30px #ff00ff;
+            transform: translateY(-2px);
+        }
+
+        /* Подвал */
+        footer {
+            background: linear-gradient(90deg, #0a0a12, #1a1a2a, #0a0a12);
+            border: 2px solid #ff00ff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 15px #ff00ff;
+            margin-top: 30px;
+            border-radius: 8px;
+            color: #ffcc00;
+        }
+
+        /* Анимации */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px currentColor; }
+            50% { text-shadow: 0 0 15px currentColor, 0 0 20px currentColor; }
+            100% { text-shadow: 0 0 5px currentColor; }
+        }
+
+        h1, h2, .task-title, .section-icon {
+            animation: glow 2s infinite;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .nav-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .task {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NEON PUNK HTML - ОСНОВЫ РАЗМЕТКИ</h1>
+        <p class="subtitle">Создаем цифровую реальность с помощью тегов и стилей</p>
+    </header>
+
+    <div class="container">
+        <!-- Навигация по страницам -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🧭</div>
+                <h2>НАВИГАЦИЯ ПО МИРУ HTML</h2>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="#task1" class="nav-btn">СТРУКТУРА HTML</a>
+                <a href="#task2" class="nav-btn">АБЗАЦЫ</a>
+                <a href="#task3" class="nav-btn">ЗАГОЛОВКИ</a>
+                <a href="#task4" class="nav-btn">ЖИРНЫЙ ТЕКСТ</a>
+                <a href="#task5" class="nav-btn">КУРСИВ</a>
+                <a href="#task6" class="nav-btn">СПИСКИ</a>
+                <a href="#task7" class="nav-btn">УПОРЯДОЧЕННЫЕ СПИСКИ</a>
+                <a href="#task8" class="nav-btn">ССЫЛКИ</a>
+                <a href="#task9" class="nav-btn">ВНУТРЕННИЕ ССЫЛКИ</a>
+                <a href="#task10" class="nav-btn">ИЗОБРАЖЕНИЯ</a>
+                <a href="#task14" class="nav-btn">ТАБЛИЦЫ</a>
+                <a href="#task17" class="nav-btn">ПРАКТИКА</a>
+            </div>
+        </div>
+        
+        <!-- Задание 1: Основная структура страницы HTML -->
+        <div class="section" id="task1">
+            <div class="section-header">
+                <div class="section-icon">⚡</div>
+                <h2>ОСНОВЫ HTML СТРУКТУРЫ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">1</span> Базовая архитектура документа</div>
+                <p>Эта страница создана с использованием базовой структуры HTML документа в стиле Neon Punk.</p>
+                <div class="code-block" style="background: #000; padding: 15px; border-radius: 5px; margin-top: 10px; border: 1px solid #ff00ff;">
+                    <code style="color: #ffcc00;">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="ru"&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+&nbsp;&nbsp;&lt;title&gt;NEON PUNK HTML&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;!-- Контент --&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+                    </code>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Задание 2: Теги для абзацев -->
+        <div class="section" id="task2">
+            <div class="section-header">
+                <div class="section-icon">📝</div>
+                <h2>РАБОТА С ТЕКСТОМ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">2</span> Теги для абзацев и форматирования</div>
+                <p>Это <strong>первый абзац</strong> текста. HTML (HyperText Markup Language) - это стандартный язык разметки для создания веб-страниц.</p>
+                <p>Это <em>второй абзац</em>. Он описывает структуру веб-страницы с помощью различных элементов и тегов.</p>
+                <p style="color: #ff00ff;">Третий абзац: HTML элементы сообщают браузеру, как отображать контент на странице.</p>
+                <p style="color: #00ccff;">Четвертый абзац: HTML был создан Тимом Бернерсом-Ли в 1991 году и с тех пор постоянно развивается.</p>
+                <p style="color: #ffcc00;">Пятый абзац: Современный HTML5 включает множество новых семантических элементов и API для создания интерактивных веб-приложений.</p>
+            </div>
+        </div>
+        
+        <!-- Задание 3: Теги для заголовков страницы -->
+        <div class="section" id="task3">
+            <div class="section-header">
+                <div class="section-icon">🎯</div>
+                <h2>ИЕРАРХИЯ ЗАГОЛОВКОВ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">3</span> Теги для заголовков страницы</div>
+                
+                <h1 style="color: #ff00ff;">Heading h1 - Главный уровень</h1>
+                <h2 style="color: #00ccff;">Heading h2 - Второстепенный</h2>
+                <h3 style="color: #00ffcc;">Heading h3 - Подраздел</h3>
+                <h4 style="color: #ffcc00;">Heading h4 - Детальный</h4>
+                <h5 style="color: #cc00ff;">Heading h5 - Мелкий</h5>
+                <h6 style="color: #00ff99;">Heading h6 - Минимальный</h6>
+                
+                <h1>Главный заголовок страницы</h1>
+                <h2>Первый подзаголовок</h2>
+                <p>Это абзац текста под первым подзаголовком. Он содержит информацию, относящуюся к теме этого раздела.</p>
+                
+                <h2>Второй подзаголовок</h2>
+                <p>Первый абзац под вторым подзаголовком. Здесь может быть дополнительная информация по теме.</p>
+                <p>Второй абзац под вторым подзаголовком. Этот текст продолжает раскрывать тему, начатую в предыдущем абзаце.</p>
+            </div>
+        </div>
+        
+        <!-- Задание 4: Теги для выделения текста жирным -->
+        <div class="section" id="task4">
+            <div class="section-header">
+                <div class="section-icon">🔆</div>
+                <h2>ВЫДЕЛЕНИЕ ТЕКСТА</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">4</span> Теги для выделения текста жирным</div>
+                <p>Это обычный текст, а это <b style="color: #ff00ff;">ЖИРНЫЙ ТЕКСТ</b> созданный с помощью тега &lt;b&gt;.</p>
+                <p>Также можно использовать тег &lt;strong&gt; для <strong style="color: #00ccff;">СЕМАНТИЧЕСКИ ВАЖНОГО ТЕКСТА</strong>.</p>
+            </div>
+        </div>
+        
+        <!-- Задание 5: Теги для выделения текста курсивом -->
+        <div class="section" id="task5">
+            <div class="section-header">
+                <div class="section-icon">🌀</div>
+                <h2>НАКЛОННЫЙ ТЕКСТ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">5</span> Теги для выделения текста курсивом</div>
+                <p>Это обычный текст, а это <i style="color: #ffcc00;">ТЕКСТ КУРСИВОМ</i> созданный с помощью тега &lt;i&gt;.</p>
+                <p>Также можно использовать тег &lt;em&gt; для <em style="color: #00ffcc;">АКЦЕНТИРОВАННОГО ТЕКСТА</em>.</p>
+            </div>
+        </div>
+        
+        <!-- Задание 6: Неупорядоченные списки в HTML -->
+        <div class="section" id="task6">
+            <div class="section-header">
+                <div class="section-icon">🔰</div>
+                <h2>НЕУПОРЯДОЧЕННЫЕ СПИСКИ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">6</span> Неупорядоченные списки в HTML</div>
+                <ul>
+                    <li style="color: #ff0066; text-shadow: 0 0 5px #ff0066;">RED - Энергия</li>
+                    <li style="color: #ffcc00; text-shadow: 0 0 5px #ffcc00;">YELLOW - Свет</li>
+                    <li style="color: #00ff66; text-shadow: 0 0 5px #00ff66;">GREEN - Природа</li>
+                    <li style="color: #0066ff; text-shadow: 0 0 5px #0066ff;">BLUE - Глубина</li>
+                    <li style="color: #ffffff; text-shadow: 0 0 5px #ffffff; background: #000; padding: 2px 5px;">WHITE - Чистота</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Задание 7: Упорядоченные списки в HTML -->
+        <div class="section" id="task7">
+            <div class="section-header">
+                <div class="section-icon">🔢</div>
+                <h2>УПОРЯДОЧЕННЫЕ СПИСКИ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">7</span> Упорядоченные списки в HTML</div>
+                <ol>
+                    <li style="color: #ff00ff;">NEO - Главный герой</li>
+                    <li style="color: #00ccff;">TRINITY - Спутница</li>
+                    <li style="color: #ffcc00;">MORPHEUS - Наставник</li>
+                    <li style="color: #00ffcc;">ORACLE - Провидица</li>
+                    <li style="color: #cc00ff;">AGENT SMITH - Противник</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Задание 8: Работа со ссылками в HTML -->
+        <div class="section" id="task8">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2>ГИПЕРССЫЛКИ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">8</span> Работа со ссылками в HTML</div>
+                <p>Ссылка на образовательный ресурс: <a href="https://code.mu" target="_blank" style="color: #00ccff;">CODE.MU</a></p>
+                <p>Поисковая система: <a href="https://yandex.ru" target="_blank" style="color: #ff00ff;">ЯНДЕКС</a></p>
+                <p>Видео платформа: <a href="https://youtube.com" target="_blank" style="color: #ff0066;">YOUTUBE</a></p>
+                <p>Секретная ссылка: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="color: #ffcc00;">СКРИМЕР ИЛИ ТАЙНОЕ ПОСЛАНИЕ?</a></p>
+            </div>
+        </div>
+        
+        <!-- Задание 9: Внутренние ссылки в HTML -->
+        <div class="section" id="task9">
+            <div class="section-header">
+                <div class="section-icon">📍</div>
+                <h2>ВНУТРЕННЯЯ НАВИГАЦИЯ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">9</span> Внутренние ссылки в HTML</div>
+                <p>Быстрая навигация по разделам:</p>
+                <div class="nav-buttons">
+                    <a href="#task1" class="nav-btn">СТРУКТУРА</a>
+                    <a href="#task2" class="nav-btn">АБЗАЦЫ</a>
+                    <a href="#task3" class="nav-btn">ЗАГОЛОВКИ</a>
+                    <a href="#task4" class="nav-btn">ЖИРНЫЙ ТЕКСТ</a>
+                    <a href="#task5" class="nav-btn">КУРСИВ</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Задания 10-13: Работа с изображениями в HTML -->
+        <div class="section" id="task10">
+            <div class="section-header">
+                <div class="section-icon">🖼️</div>
+                <h2>ВИЗУАЛЬНЫЕ ЭЛЕМЕНТЫ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">10</span> Базовые изображения в HTML</div>
+                <div class="svg-container">
+                    <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#0a0a12"/>
+                        <circle cx="200" cy="150" r="80" fill="#ff00ff"/>
+                        <text x="200" y="150" font-family="Courier New" font-size="20" text-anchor="middle" fill="#00ffcc">NEON CIRCLE</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="task">
+                <div class="task-title"><span class="task-counter">11</span> Ширина изображения</div>
+                <div class="svg-container">
+                    <svg width="300" height="225" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#1a1a2a"/>
+                        <rect x="50" y="50" width="200" height="125" fill="#00ccff"/>
+                        <text x="150" y="125" font-family="Courier New" font-size="16" text-anchor="middle" fill="#0a0a12">WIDTH: 300px</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="task">
+                <div class="task-title"><span class="task-counter">12</span> Высота изображения</div>
+                <div class="svg-container">
+                    <svg width="267" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#1a1a2a"/>
+                        <polygon points="133,20 233,80 133,80 33,80" fill="#ffcc00"/>
+                        <text x="133" y="60" font-family="Courier New" font-size="12" text-anchor="middle" fill="#0a0a12">HEIGHT: 100px</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="task">
+                <div class="task-title"><span class="task-counter">13</span> Пропорции изображения</div>
+                <p>Искаженные пропорции:</p>
+                <div class="svg-container">
+                    <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#1a1a2a"/>
+                        <ellipse cx="150" cy="50" rx="140" ry="40" fill="#ff0066"/>
+                        <text x="150" y="50" font-family="Courier New" font-size="10" text-anchor="middle" fill="#00ffcc">DISTORTED</text>
+                    </svg>
+                </div>
+                <p>Сохраненные пропорции:</p>
+                <div class="svg-container">
+                    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#1a1a2a"/>
+                        <ellipse cx="150" cy="100" rx="140" ry="80" fill="#00ff66"/>
+                        <text x="150" y="100" font-family="Courier New" font-size="14" text-anchor="middle" fill="#0a0a12">NORMAL PROPORTIONS</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Задание 14: Работа с таблицами в HTML -->
+        <div class="section" id="task14">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2>ТАБЛИЧНЫЕ ДАННЫЕ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">14</span> Базовая структура таблиц</div>
+                <p>Таблица с тремя рядами и пятью ячейками в каждом:</p>
+                <table>
+                    <tr>
+                        <td>Ячейка 1-1</td>
+                        <td>Ячейка 1-2</td>
+                        <td>Ячейка 1-3</td>
+                        <td>Ячейка 1-4</td>
+                        <td>Ячейка 1-5</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 2-1</td>
+                        <td>Ячейка 2-2</td>
+                        <td>Ячейка 2-3</td>
+                        <td>Ячейка 2-4</td>
+                        <td>Ячейка 2-5</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 3-1</td>
+                        <td>Ячейка 3-2</td>
+                        <td>Ячейка 3-3</td>
+                        <td>Ячейка 3-4</td>
+                        <td>Ячейка 3-5</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Задание 15: Ширина и высота таблицы в HTML -->
+        <div class="section" id="task15">
+            <div class="section-header">
+                <div class="section-icon">📐</div>
+                <h2>РАЗМЕРЫ ТАБЛИЦ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">15</span> Контроль размеров таблицы</div>
+                <p>Таблица с шириной 400px и высотой 300px:</p>
+                <table style="width: 400px; height: 300px;">
+                    <tr>
+                        <td>Ячейка 1-1</td>
+                        <td>Ячейка 1-2</td>
+                        <td>Ячейка 1-3</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 2-1</td>
+                        <td>Ячейка 2-2</td>
+                        <td>Ячейка 2-3</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 3-1</td>
+                        <td>Ячейка 3-2</td>
+                        <td>Ячейка 3-3</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Задание 16: Ячейки-заголовки в таблице в HTML -->
+        <div class="section" id="task16">
+            <div class="section-header">
+                <div class="section-icon">🏷️</div>
+                <h2>ЗАГОЛОВКИ ТАБЛИЦ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">16</span> Семантические заголовки таблиц</div>
+                <table style="width: 100%;">
+                    <tr>
+                        <th>ТОВАР</th>
+                        <th>ЦЕНА</th>
+                        <th>КОЛИЧЕСТВО</th>
+                    </tr>
+                    <tr>
+                        <td>Кибер-яблоко</td>
+                        <td>100 кредитов</td>
+                        <td>5 единиц</td>
+                    </tr>
+                    <tr>
+                        <td>Неоновый апельсин</td>
+                        <td>200 кредитов</td>
+                        <td>6 единиц</td>
+                    </tr>
+                    <tr>
+                        <td>Глюк-банан</td>
+                        <td>300 кредитов</td>
+                        <td>7 единиц</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Задание 17: Практическое задание: базовая структура с иерархией заголовков -->
+        <div class="section" id="task17">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <h2>ПРАКТИКА: СТРУКТУРА ДОКУМЕНТА</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">17</span> Иерархия контента</div>
+                <h1>ГЛАВНЫЙ ЗАГОЛОВОК СТРАНИЦЫ</h1>
+                <p>Абзац с текстом под главным заголовком.</p>
+                
+                <h2>Второстепенный заголовок 1</h2>
+                <p>Абзац с текстом под первым подзаголовком.</p>
+                <p>Второй абзац с дополнительной информацией.</p>
+                <p>Третий абзац завершающий раздел.</p>
+                
+                <h2>Второстепенный заголовок 2</h2>
+                <p>Абзац с текстом под вторым подзаголовком.</p>
+                <p>Продолжение раскрытия темы.</p>
+                <p>Финальные мысли по разделу.</p>
+                
+                <h2>Второстепенный заголовок 3</h2>
+                <p>Начало нового раздела.</p>
+                <p>Развитие идеи.</p>
+                <p>Заключительная часть.</p>
+            </div>
+        </div>
+        
+        <!-- Задание 18: Практическое задание: Текст и всякое -->
+        <div class="section" id="task18">
+            <div class="section-header">
+                <div class="section-icon">⚙️</div>
+                <h2>СИСТЕМЫ УПРАВЛЕНИЯ КОНТЕНТОМ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">18</span> Что такое CMS</div>
+                
+                <h1>СИСТЕМЫ УПРАВЛЕНИЯ КОНТЕНТОМ</h1>
+                
+                <p><strong>CMS</strong> - "система управления контентом" (<strong>движок</strong>) - написанная PHP-программистами основа для сайта, с помощью которой вы сможете управлять сайтом (добавлять контент, менять пункты меню и т.п.) не зная HTML и CSS.</p>
+                
+                <p>Однако, для того чтобы сделать сайт с помощью <strong>CMS</strong> потребуются услуги и программиста, и дизайнера, и верстальщика. И капиталовложения.</p>
+                
+                <h2>Разновидности CMS</h2>
+                <p>Бывают различные системы управления контентом: для интернет-магазинов, для блогов, для форумов и т.д.</p>
+                
+                <h2>Популярные платформы</h2>
+                <p><em>Примеры популярных CMS</em>: Joomla, WordPress (для блогов), phpBB (для форумов).</p>
+                
+                <h2>Типы лицензий</h2>
+                <p>Бывают <em>платные</em> и <em>бесплатные</em> движки.</p>
+            </div>
+        </div>
+        
+        <!-- Задание 19: Практическое задание: Текст и всякое -->
+        <div class="section" id="task19">
+            <div class="section-header">
+                <div class="section-icon">💻</div>
+                <h2>ТЕХНОЛОГИИ ВЕБ-РАЗРАБОТКИ</h2>
+            </div>
+            
+            <div class="task">
+                <div class="task-title"><span class="task-counter">19</span> Стек технологий для веб-разработки</div>
+                
+                <h1>ЧТО НУЖНО ЗНАТЬ, ЧТОБЫ СОЗДАВАТЬ САЙТЫ</h1>
+                
+                <ol>
+                    <li><b style="color: #ff0066;">HTML</b> - структура</li>
+                    <li><b style="color: #0066ff;">CSS</b> - стилизация</li>
+                    <li><b style="color: #ffcc00;">PHP</b> - серверная логика</li>
+                    <li><b style="color: #00ff66;">SQL</b> - базы данных</li>
+                    <li><b style="color: #ff00ff;">JavaScript</b> - интерактивность</li>
+                    <li><b style="color: #cc00ff;">jQuery</b> - библиотека JS</li>
+                    <li><b style="color: #00ccff;">Flash</b> - анимации</li>
+                    <li><b style="color: #ff9900;">SEO</b> - оптимизация</li>
+                </ol>
+                
+                <h2>Динамические технологии</h2>
+                <p>Языки программирования <b>PHP</b> и <b>JavaScript</b> позволяют сделать сайт динамичным, то есть реагирующим на действия пользователя. Например, можно сделать красивую выпадающую меню или слайдер.</p>
+                
+                <h2>Типы скриптов</h2>
+                <p>Для этого пишутся скрипты (англ. <i>script</i> - "сценарий") - программы, позволяющие реагировать на действия пользователя. Скрипты бывают двух видов:</p>
+                
+                <ul>
+                    <li><b>Серверные скрипты</b> - выполняются на сервере, а результат их выполнения приходит в браузер к пользователю уже в готовом виде. Это скрипты, написанные на языке <b>PHP</b>. На нем пишутся <b>CMS-ки</b> - системы управления контентом.</li>
+                    <li><b>Клиентские скрипты</b> - выполняются прямо в браузере пользователя. Это скрипты, написанные на языке <b>JavaScript</b>. Они чаще всего используются для того, чтобы сделать страницу более удобной и красивой.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>NEON PUNK HTML - Основы разметки © 2025 | Создано в стиле киберпанк</p>
+        <p>Все задания проверены и работают в современных браузерах</p>
+    </footer>
+</body>
+</html>
