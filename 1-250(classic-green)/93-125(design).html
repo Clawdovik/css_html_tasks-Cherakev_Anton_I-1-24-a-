@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML Tasks-Design</title>
+    <style>
+        /* Общие стили для документа */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        div {
+            margin-bottom: 30px;
+        }
+        
+        /* Стили для задач 90-107 */
+        #task90_1 {
+            background-color: #808bf4;
+            width: 200px;
+            height: 200px;
+        }
+
+        #task90_2 {
+            background-color: #4cf199;
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            color:white;
+            font-size: 30px;
+        }
+
+        #task92 {
+            width: 300px;
+            height: 200px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: blue;
+        }
+
+        #task93 {
+            border-width: 5px;
+            border-style: dotted;
+            border-color: red;
+            width: 300px;
+            height: 200px;
+        }
+
+        #task94 {
+            border-width: 2px;
+            border-style: dashed;
+            border-color: rgb(255, 170, 0);
+            width: 300px;
+            height: 200px;
+        }
+
+        #task96 {
+            border-width: 10px;
+            border-style: double;
+            border-color: blue;
+            width: 300px;
+            height: 200px;
+        }
+
+        #task97_1 {
+            border: 1px solid red;
+            width:300px;
+            height: 200px;   
+        }
+
+        #task97_2 {
+            border: 2px dotted blue;
+            width:300px;
+            height: 200px;
+        }
+
+        #task97_3 {
+            border: 3px dashed green;
+            width:300px;
+            height: 200px;
+        }
+
+        #task97_4 {
+            border: 5px double orange;
+            width:300px;
+            height: 200px;
+        }
+
+        #task98_1 {
+            width: 300px;
+            height: 200px;
+            border-top: 3px solid blue;
+            border-right: 3px solid green;
+            border-left: 3px solid orange;
+            border-bottom: 3px solid red;
+        }
+
+        #task98_2 {
+            width: 300px;
+            height: 200px;
+            border-top: 1px solid blue;
+            border-right: 3px dotted green;
+            border-bottom: 1px solid blue;
+            border-left: 3px solid red;
+        }
+
+        #task99 {
+            height:200px;
+            width: 200px;
+            border: 1px solid green;
+            border-radius: 30px;
+        }
+
+        #task100 {
+            border-radius: 30px;
+            height:200px;
+            width: 200px;
+            background-color: #44e18e ;
+        }
+
+        #task101 {
+            border-radius: 100px;
+            height:200px;
+            width: 200px;
+            border: 1px solid green;
+        }
+
+        #task103 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+            border-radius: 10px 30px 50px 70px;
+        }
+
+        #task104 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+            border-radius: 10px 30px;
+        }
+
+        #task105 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid green;
+            border-radius: 10px 30px 20px;
+        }
+
+        #task107 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+            border-radius: 50%;
+        }
+        
+        /* Стили для задач 112-121 */
+        #task112 ul {
+            list-style-type: square;
+        }
+
+        #task113 ul {
+            list-style-type: circle;
+        }
+
+        #task115 ul {
+            list-style-type: none;
+        }
+
+        #task119 ol {
+            list-style-type: lower-alpha;
+        }
+
+        #task120 ol {
+            list-style-type: upper-alpha;
+        }
+
+        #task121 ol {
+            list-style-type: lower-greek;
+        }
+        
+        /* Стили для задачи 110 */
+        #task1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='40' fill='%2344e18e'/%3E%3C/svg%3E");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 200px 200px;
+            width: 250px;
+            height: 250px;
+            border: 3px solid maroon;
+        }
+        
+        #task2 {
+            width: 564px;
+            height: 317px;
+            border: 3px solid maroon;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpath d='M20,20 L80,20 L80,80 L20,80 Z' fill='%23808bf4'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 660px 400px;
+            background-attachment: fixed;
+        }
+        
+        #task2 p {
+            width: 400px;
+            margin: 0 auto;
+            text-align: justify;
+            font-style: italic;
+            font-size: 17px;
+            color: rgb(138, 185, 195);
+        }
+        
+        #task3 {
+            background-clip: border-box;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpolygon points='50,10 90,90 10,90' fill='%23ffaa00'/%3E%3C/svg%3E");
+            border: 6px dashed maroon;
+            padding: 10px;
+            width: 563px;
+            height: 564px;
+        }
+        
+        /* Стили для задач 108-109 */
+        .bg-section {
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        #task108 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='40' fill='%234cf199'/%3E%3C/svg%3E");
+            height: 200px;
+        }
+        
+        #task109_1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Crect x='40' y='0' width='20' height='100' fill='%23808bf4'/%3E%3C/svg%3E");
+            background-repeat: repeat-y;
+            height: 200px;
+        }
+        
+        #task109_2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Crect x='0' y='40' width='100' height='20' fill='%2344e18e'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DESIGN :D</h1>
+    
+    <h2>Task#90 №1</h2>
+    <div id="task90_1"></div>
+    
+    <h2>Task#90 №2</h2>
+    <div id="task90_2">
+        text text text
+    </div>
+
+    <h2>Task#92 №1</h2>
+    <div id="task92"></div>
+    
+    <h2>Task#93 №1</h2>
+    <div id="task93"></div>
+    
+    <h2>Task#94 №1</h2>
+    <div id="task94"></div>
+    
+    <h2>Task#96 №1</h2>
+    <div id="task96"></div>
+
+    <h2>Task#97 №1</h2>
+    <div id="task97_1"></div>
+    
+    <h2>Task#97 №2</h2>
+    <div id="task97_2"></div>
+    
+    <h2>Task#97 №3</h2>
+    <div id="task97_3"></div>
+    
+    <h2>Task#97 №4</h2>
+    <div id="task97_4"></div>
+
+    <h2>Task#98 №1</h2>
+    <div id="task98_1"></div>
+    
+    <h2>Task#98 №2</h2>
+    <div id="task98_2"></div>
+
+    <h2>Task#99 №1</h2>
+    <div id="task99"></div>
+    
+    <h2>Task#100 №1</h2>
+    <div id="task100"></div>
+
+    <h2>Task#101 №1</h2>
+    <div id="task101"></div>
+    
+    <h2>Task#103 №1</h2>
+    <div id="task103"></div>
+
+    <h2>Task#104 №1</h2>
+    <div id="task104"></div>
+
+    <h2>Task#105 №1</h2>
+    <div id="task105"></div>
+
+    <h2>Task#107 №1</h2>
+    <div id="task107"></div>
+    
+    <h2>Task#108 №1</h2>
+    <div id="task108" class="bg-section">
+        <p>Фоновое изображение для всей страницы</p>
+    </div>
+
+    <h2>Task#109 №1</h2>
+    <div id="task109_1" class="bg-section">
+        <p>Фоновое изображение повторяется по вертикали</p>
+    </div>
+    
+    <h2>Task#109 №2</h2>
+    <div id="task109_2" class="bg-section">
+        <p>Фоновое изображение повторяется по горизонтали</p>
+    </div>
+    
+    <h2>Task#110 "Другие свойства для фона в CSS"</h2>
+    <h3>№1 "background-position и background-size"</h3>
+    <div id="task1"></div>
+    
+    <h3>№2 "background-attachment"</h3>
+    <div id="task2">
+        <p>Мудрые слова Кар-Карыча</p>
+        <p>
+            Все мы иногда чувствуем одиночество. Нам не хватает собеседника, но это не значит, что мы одиноки на самом деле. Рядом с нами всегда есть тот, кто может понять наши переживания, выслушать нас, что-то подсказать. Как правило, одиночество и пустота вокруг нас — это плод нашего воображения.</p>
+        <p>
+            А на самом деле вокруг нас жизнь бьет ключом, в ожидании когда мы вольемся в ее шумный и свежий поток.
+        </p>
+    </div>
+
+    <h3>№3 "background-clip и background-origin"</h3>
+    <div id="task3"></div>
+    
+    <h2>Task#112 №1</h2>
+    <div id="task112">
+        <ul>
+            <li>watermelon</li>
+            <li>apple</li>
+            <li>orange</li>
+            <li>pear</li>
+            <li>tangerine</li>
+            <li>peach</li>
+        </ul>
+    </div>
+
+    <h2>Task#113 №1</h2>
+    <div id="task113">
+        <ul>
+            <li>watermelon</li>
+            <li>apple</li>
+            <li>orange</li>
+            <li>pear</li>
+            <li>tangerine</li>
+            <li>peach</li>
+        </ul>
+    </div>
+
+    <h2>Task#115 №1</h2>
+    <div id="task115">
+        <ul>
+            <li>watermelon</li>
+            <li>apple</li>
+            <li>orange</li>
+            <li>pear</li>
+            <li>tangerine</li>
+            <li>peach</li>
+        </ul>
+    </div>
+
+    <h2>Task#119 №1</h2>
+    <div id="task119">
+        <ol>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ol>
+    </div>
+
+    <h2>Task#120 №1</h2>
+    <div id="task120">
+        <ol>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ol>
+    </div>
+
+    <h2>Task#121 №1</h2>
+    <div id="task121">
+        <ol>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ol>
+    </div>
+</body>
+</html>

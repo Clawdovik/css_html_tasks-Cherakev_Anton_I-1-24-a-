@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задачи 203-216 - Flexbox в CSS</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #444;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #666;
+            margin: 20px 0 10px 0;
+        }
+        .task-section {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .info-box {
+            background: #e7f5ff;
+            border-left: 4px solid #339af0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* Базовые стили для flex контейнеров и элементов */
+        .flex-container {
+            width: 900px;
+            height: 400px;
+            margin: 20px auto;
+            border: 3px solid #dc3545;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .child {
+            width: 120px;
+            height: 60px;
+            border: 2px solid #28a745;
+            background: linear-gradient(135deg, #51cf66, #94d82d);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        /* Task 203-206 - Flex direction */
+        .parent203 { display: flex; flex-direction: row; }
+        .parent204 { display: flex; flex-direction: row-reverse; }
+        .parent205 { display: flex; flex-direction: column; }
+        .parent206 { display: flex; flex-direction: column-reverse; }
+
+        /* Task 207 - Теория (ответы) */
+        .answer-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+        .answer-box b {
+            color: #856404;
+        }
+
+        /* Task 208 - Justify-content */
+        .parent208_1 { display: flex; flex-direction: row; justify-content: flex-end; }
+        .parent208_2 { display: flex; flex-direction: column; justify-content: flex-end; }
+        .parent208_3 { display: flex; flex-direction: row-reverse; justify-content: flex-start; }
+        .parent208_4 { display: flex; flex-direction: row-reverse; justify-content: flex-end; }
+        .parent208_5 { display: flex; flex-direction: column-reverse; justify-content: flex-end; }
+
+        /* Task 209 - Комбинации justify-content и align-items */
+        .parent209_1 { display: flex; flex-direction: column-reverse; justify-content: flex-end; align-items: flex-end; }
+        .parent209_2 { display: flex; flex-direction: row-reverse; justify-content: flex-start; align-items: flex-end; }
+        .parent209_3 { display: flex; flex-direction: column-reverse; justify-content: flex-end; align-items: flex-start; }
+        .parent209_4 { display: flex; flex-direction: column-reverse; justify-content: flex-start; align-items: flex-end; }
+        .parent209_5 { display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-end; }
+        .parent209_6 { display: flex; flex-direction: row; justify-content: center; align-items: flex-start; }
+        .parent209_7 { display: flex; flex-direction: row; justify-content: center; align-items: flex-end; }
+
+        /* Task 210 - Центрирование */
+        .parent210_1 { display: flex; flex-direction: row; justify-content: center; align-items: center; }
+        .parent210_2 { display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; }
+        .parent210_3 { display: flex; flex-direction: row; justify-content: flex-end; align-items: center; }
+        .parent210_4 { display: flex; flex-direction: row; justify-content: space-between; align-items: center; }
+        .parent210_5 { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .parent210_6 { display: flex; flex-direction: column-reverse; justify-content: center; align-items: center; }
+
+        /* Task 213 - Stretch */
+        .child1 { width: 120px; border: 2px solid #007bff; background: linear-gradient(135deg, #74b9ff, #a29bfe); }
+        .child2 { height: 40px; border: 2px solid #fd7e14; background: linear-gradient(135deg, #fd7e14, #ffa94d); }
+        .child3 { height: 40px; border: 2px solid #e83e8c; background: linear-gradient(135deg, #e83e8c, #f783ac); }
+        
+        .parent213_1 { display: flex; flex-direction: row; justify-content: center; align-items: stretch; }
+        .parent213_2 { display: flex; flex-direction: column; justify-content: center; align-items: stretch; }
+        .parent213_3 { display: flex; flex-direction: column; justify-content: space-between; align-items: stretch; }
+
+        /* Task 214 - Комплексные комбинации */
+        .parent214_1 { display: flex; flex-direction: row; justify-content: space-evenly; align-items: flex-end; }
+        .parent214_2 { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+        .parent214_3 { display: flex; flex-direction: column; justify-content: center; align-items: flex-end; }
+        .parent214_4 { display: flex; flex-direction: column-reverse; justify-content: center; align-items: flex-end; }
+        .parent214_5 { display: flex; flex-direction: column-reverse; justify-content: center; align-items: flex-start; }
+        .parent214_6 { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; }
+        .parent214_7 { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-end; }
+        .parent214_8 { display: flex; flex-direction: column-reverse; justify-content: space-between; align-items: flex-end; }
+        .parent214_9 { display: flex; flex-direction: row; justify-content: space-evenly; align-items: flex-end; }
+
+        /* Task 215 - Align-self */
+        .child1-task215 { 
+            width: 120px; 
+            height: 60px; 
+            border: 2px solid #20c997; 
+            background: linear-gradient(135deg, #20c997, #63e6be); 
+        }
+        .elem1 { align-self: flex-end; background: linear-gradient(135deg, #ff6b6b, #ffa8a8); }
+        
+        .child2-task215 { 
+            width: 100px; 
+            border: 2px solid #6f42c1; 
+            background: linear-gradient(135deg, #845ef7, #cc5de8); 
+            height: 60px;
+        }
+        .elem2, .elem3 { align-self: center; background: linear-gradient(135deg, #ffa8a8, #ffc9c9); }
+        
+        .child3-task215 { 
+            width: 100px; 
+            height: 60px; 
+            border: 2px solid #fd7e14; 
+            background: linear-gradient(135deg, #fd7e14, #ffa94d); 
+        }
+
+        .parent215_1 { display: flex; flex-direction: row; justify-content: center; align-items: center; }
+        .parent215_2 { display: flex; flex-direction: row; justify-content: center; align-items: stretch; }
+        .parent215_3 { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+
+        /* Task 216 - Order */
+        .parent216_1, .parent216_2 {
+            width: 900px;
+            height: 400px;
+            margin: 20px auto;
+            border: 3px solid #ffc107;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .parent216_1 { display: flex; flex-direction: column-reverse; justify-content: center; align-items: center; }
+        .parent216_2 { display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; }
+        .elem216_1, .elem216_2 { 
+            order: -1;
+            border: 3px solid #e83e8c !important; 
+            background: linear-gradient(135deg, #e83e8c, #f783ac) !important;
+        }
+
+        /* Визуальные улучшения для демонстрации осей */
+        .axis-demo {
+            position: relative;
+            overflow: hidden;
+        }
+        .axis-demo::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #007bff, transparent);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        .axis-demo.vertical::before {
+            top: 0;
+            left: 50%;
+            bottom: 0;
+            width: 2px;
+            height: auto;
+            background: linear-gradient(180deg, transparent, #dc3545, transparent);
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>Задачи 203-216 - Flexbox в CSS</h1>
+
+    <!-- Task 203-206 -->
+    <div class="task-section">
+        <h2>Task#203-206 - Flex Direction (Направление главной оси)</h2>
+        
+        <div class="info-box">
+            <strong>flex-direction</strong> определяет направление главной оси и порядок flex-элементов
+        </div>
+
+        <h3>Task#203 - row (горизонтально слева направо)</h3>
+        <div class="parent203 flex-container axis-demo">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#204 - row-reverse (горизонтально справа налево)</h3>
+        <div class="parent204 flex-container axis-demo">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#205 - column (вертикально сверху вниз)</h3>
+        <div class="parent205 flex-container axis-demo vertical">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#206 - column-reverse (вертикально снизу вверх)</h3>
+        <div class="parent206 flex-container axis-demo vertical">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+    </div>
+
+    <!-- Task 207 -->
+    <div class="task-section">
+        <h2>Task#207 - Теория Flexbox осей</h2>
+        
+        <div class="answer-box">
+            <p><b>№1:</b> Если главная ось горизонтальна, то поперечная ось будет направлена вертикально.</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№2:</b> Если главная ось вертикальна, то поперечная ось будет направлена горизонтально.</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№3:</b> Если поперечная ось направлена направо, то главная ось может быть направлена вверх или вниз.</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№4:</b> Если поперечная ось направлена вниз, то главная ось может быть направлена влево или вправо.</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№5:</b> Да, поперечная ось может быть направлена справа налево, если главная ось горизонтальна и расположена в верхней или нижней части контейнера.</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№6:</b> Да, поперечная ось может быть направлена снизу вверх, если главная ось вертикальна и расположена слева или справа от контейнера.</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№7:</b> Если свойство flex-direction имеет значение row, то главная ось будет направлена горизонтально (слева направо), а поперечная ось — вертикально (сверху вниз).</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№8:</b> Если свойство flex-direction имеет значение column, то главная ось будет направлена вертикально (сверху вниз), а поперечная ось — горизонтально (слева направо).</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№9:</b> Если свойство flex-direction имеет значение row-reverse, то главная ось будет направлена горизонтально (справа налево), а поперечная ось — вертикально (сверху вниз).</p>
+        </div>
+        <div class="answer-box">
+            <p><b>№10:</b> Если свойство flex-direction имеет значение column-reverse, то главная ось будет направлена вертикально (снизу вверх), а поперечная ось — горизонтально (слева направо).</p>
+        </div>
+    </div>
+
+    <!-- Task 208 -->
+    <div class="task-section">
+        <h2>Task#208 - Justify-content (Выравнивание по главной оси)</h2>
+        
+        <div class="info-box">
+            <strong>justify-content</strong> выравнивает элементы вдоль главной оси
+        </div>
+
+        <h3>Task#208 №1 - row + flex-end</h3>
+        <div class="parent208_1 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#208 №2 - column + flex-end</h3>
+        <div class="parent208_2 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#208 №3 - row-reverse + flex-start</h3>
+        <div class="parent208_3 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#208 №4 - row-reverse + flex-end</h3>
+        <div class="parent208_4 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#208 №5 - column-reverse + flex-end</h3>
+        <div class="parent208_5 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+    </div>
+
+    <!-- Task 209 -->
+    <div class="task-section">
+        <h2>Task#209 - Комбинации justify-content и align-items</h2>
+        
+        <div class="info-box">
+            Комбинации выравнивания по главной и поперечной осям
+        </div>
+
+        <h3>Task#209 №1 - column-reverse + flex-end + flex-end</h3>
+        <div class="parent209_1 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#209 №2 - row-reverse + flex-start + flex-end</h3>
+        <div class="parent209_2 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#209 №3 - column-reverse + flex-end + flex-start</h3>
+        <div class="parent209_3 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#209 №4 - column-reverse + flex-start + flex-end</h3>
+        <div class="parent209_4 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#209 №5 - row + flex-start + flex-end</h3>
+        <div class="parent209_5 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#209 №6 - row + center + flex-start</h3>
+        <div class="parent209_6 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#209 №7 - row + center + flex-end</h3>
+        <div class="parent209_7 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+    </div>
+
+    <!-- Task 210 -->
+    <div class="task-section">
+        <h2>Task#210 - Центрирование элементов</h2>
+        
+        <div class="info-box">
+            Различные способы центрирования с помощью Flexbox
+        </div>
+
+        <h3>Task#210 №1 - row + center + center</h3>
+        <div class="parent210_1 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#210 №2 - row-reverse + center + center</h3>
+        <div class="parent210_2 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#210 №3 - row + flex-end + center</h3>
+        <div class="parent210_3 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#210 №4 - row + space-between + center</h3>
+        <div class="parent210_4 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#210 №5 - column + center + center</h3>
+        <div class="parent210_5 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#210 №6 - column-reverse + center + center</h3>
+        <div class="parent210_6 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+    </div>
+
+    <!-- Task 213 -->
+    <div class="task-section">
+        <h2>Task#213 - Align-items: stretch</h2>
+        
+        <div class="info-box">
+            <strong>align-items: stretch</strong> растягивает элементы вдоль поперечной оси
+        </div>
+
+        <h3>Task#213 №1 - row + center + stretch</h3>
+        <div class="parent213_1 flex-container">
+            <div class="child1">1</div>
+            <div class="child1">2</div>
+            <div class="child1">3</div>
+            <div class="child1">4</div>
+            <div class="child1">5</div>
+        </div>
+
+        <h3>Task#213 №2 - column + center + stretch</h3>
+        <div class="parent213_2 flex-container">
+            <div class="child2">1</div>
+            <div class="child2">2</div>
+            <div class="child2">3</div>
+            <div class="child2">4</div>
+            <div class="child2">5</div>
+        </div>
+
+        <h3>Task#213 №3 - column + space-between + stretch</h3>
+        <div class="parent213_3 flex-container">
+            <div class="child3">1</div>
+            <div class="child3">2</div>
+            <div class="child3">3</div>
+            <div class="child3">4</div>
+            <div class="child3">5</div>
+        </div>
+    </div>
+
+    <!-- Task 214 -->
+    <div class="task-section">
+        <h2>Task#214 - Комплексные комбинации выравнивания</h2>
+        
+        <div class="info-box">
+            Продвинутые комбинации свойств выравнивания
+        </div>
+
+        <h3>Task#214 №1 - row + space-evenly + flex-end</h3>
+        <div class="parent214_1 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №2 - column + center + flex-start</h3>
+        <div class="parent214_2 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №3 - column + center + flex-end</h3>
+        <div class="parent214_3 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №4 - column-reverse + center + flex-end</h3>
+        <div class="parent214_4 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №5 - column-reverse + center + flex-start</h3>
+        <div class="parent214_5 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №6 - column + space-between + flex-start</h3>
+        <div class="parent214_6 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №7 - row + space-between + flex-end</h3>
+        <div class="parent214_7 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №8 - column-reverse + space-between + flex-end</h3>
+        <div class="parent214_8 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#214 №9 - row + space-evenly + flex-end</h3>
+        <div class="parent214_9 flex-container">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+    </div>
+
+    <!-- Task 215 -->
+    <div class="task-section">
+        <h2>Task#215 - Align-self (Индивидуальное выравнивание)</h2>
+        
+        <div class="info-box">
+            <strong>align-self</strong> позволяет переопределить выравнивание для отдельных элементов
+        </div>
+
+        <h3>Task#215 №1 - Элемент 3 с align-self: flex-end</h3>
+        <div class="parent215_1 flex-container">
+            <div class="child1-task215">1</div>
+            <div class="child1-task215">2</div>
+            <div class="child1-task215 elem1">3</div>
+            <div class="child1-task215">4</div>
+            <div class="child1-task215">5</div>
+        </div>
+
+        <h3>Task#215 №2 - Элемент 3 с align-self: center (при stretch)</h3>
+        <div class="parent215_2 flex-container">
+            <div class="child2-task215">1</div>
+            <div class="child2-task215">2</div>
+            <div class="child2-task215 elem2">3</div>
+            <div class="child2-task215">4</div>
+            <div class="child2-task215">5</div>
+        </div>
+
+        <h3>Task#215 №3 - Элемент 3 с align-self: center (при flex-start)</h3>
+        <div class="parent215_3 flex-container">
+            <div class="child3-task215">1</div>
+            <div class="child3-task215">2</div>
+            <div class="child3-task215 elem3">3</div>
+            <div class="child3-task215">4</div>
+            <div class="child3-task215">5</div>
+        </div>
+    </div>
+
+    <!-- Task 216 -->
+    <div class="task-section">
+        <h2>Task#216 - Order (Порядок элементов)</h2>
+        
+        <div class="info-box">
+            <strong>order</strong> изменяет порядок отображения элементов без изменения HTML
+        </div>
+
+        <h3>Task#216 №1 - Элемент 3 с order: -1 (в column-reverse)</h3>
+        <div class="parent216_1">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child elem216_1">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+
+        <h3>Task#216 №2 - Элемент 3 с order: -1 (в row-reverse)</h3>
+        <div class="parent216_2">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child elem216_2">3</div>
+            <div class="child">4</div>
+            <div class="child">5</div>
+        </div>
+    </div>
+
+</body>
+</html>

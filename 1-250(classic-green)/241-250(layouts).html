@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout - Полное руководство с примерами</title>
+    <style>
+        /* Общие стили */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin: 40px 0 20px 0;
+            padding: 10px;
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin: 25px 0 15px 0;
+        }
+        
+        .task-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .code-example {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 3px solid #3498db;
+            overflow-x: auto;
+        }
+        
+        /* Стили для меню */
+        .menu-horizontal {
+            display: flex;
+        }
+        
+        .menu-horizontal a {
+            box-sizing: border-box;
+            margin-right: 10px;
+            padding: 10px 25px;
+            font: 16px Arial;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #16A177;
+            background-color: #16A177;
+        }
+        
+        .menu-horizontal a:hover, .menu-horizontal a.active {
+            color: #16A177;
+            background-color: white;
+        }
+        
+        .menu-vertical {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        
+        .menu-vertical a {
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            padding: 10px 25px;
+            font: 16px Arial;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #16A177;
+            background-color: #16A177;
+        }
+        
+        .menu-vertical a:hover, .menu-vertical a.active {
+            color: #16A177;
+            background-color: white;
+        }
+        
+        .menu-centered {
+            display: flex;
+            background-color: #16A177;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu-centered a {
+            box-sizing: border-box;
+            padding: 15px 40px;
+            font: 16px Arial;
+            text-decoration: none;
+            color: white;   
+        }
+        
+        .menu-centered a:hover, .menu-centered a.active {
+            background-color: #16785C;
+        }
+        
+        /* Стили для layout заданий */
+        .wrapper {
+            width: 890px;
+            margin: 0 auto;
+            display: flex;
+        }
+        
+        .price {
+            margin-top: 10px;
+            width: 500px;
+        }
+        
+        .price td, .price th {
+            border: 1px solid #000000;
+            text-align: center;
+        }
+        
+        .price th {
+            background-color: #EBEBEB;
+        }
+        
+        .picture {
+            width: 490px;
+            height: 375px;
+        }
+        
+        header.nav-header {
+            background-color: #F8AA03;
+        }
+        
+        #menu {
+            min-height: 50px;
+            align-items: center;
+            display: flex;
+            margin-left: 20px;
+        }
+        
+        #menu a:link, #menu a:visited {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        #menu a:hover, #menu a.active {
+            text-decoration: underline;
+        }
+        
+        aside.sidebar {
+            width: 360px;
+            background-color: #ffffff;
+            padding: 20px 20px 20px 10px;
+            box-sizing: border-box;
+        }
+        
+        aside.sidebar > div {
+            margin: 20px 20px 0 0;
+        }
+        
+        aside.sidebar h2 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+        
+        aside.sidebar p, aside.sidebar li {
+            font-size: 16px;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        
+        aside.sidebar ul {
+            list-style-type: none;
+        }
+        
+        main.content {
+            text-align: justify;
+            width: 530px;
+            background-color: #ffffff;
+            padding: 20px 10px 20px 20px;
+            box-sizing: border-box;
+        }
+        
+        main.content h1 {
+            font-size: 21px;
+        }
+        
+        main.content h2 {
+            font-size: 19px;
+            margin-top: 20px;
+        }
+        
+        main.content p {
+            margin: 10px 0;
+        }
+        
+        footer.page-footer {
+            color: #ffffff;
+            display: flex;
+            min-height: 75px;
+            align-items: center;
+            justify-content: center;
+            background-color: #F8AA03;
+        }
+        
+        nav a {
+            margin-right: 20px;
+            font-size: 18px;
+        }
+        
+        /* Стили для layout конструкций */
+        .layout-wrapper {
+            width: 1200px;
+            margin: 30px auto;
+            border: 1px solid black;
+        }
+        
+        .layout-header {
+            height: 250px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        .layout-container {
+            display: flex;
+        }
+        
+        .layout-content {
+            width: 860px;
+            height: 900px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        .layout-sidebar {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        .layout-sidebar.left {
+            margin-right: 40px;
+        }
+        
+        .layout-sidebar.right {
+            margin-left: 40px;
+        }
+        
+        .layout-footer {
+            height: 100px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        /* SVG иконки */
+        .svg-icon {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            margin: 10px 0;
+        }
+        
+        /* Специфические стили для заданий */
+        #wrapper241_1 {
+            width: 700px;
+            margin: 50px auto;
+            text-align: justify;
+            border: 1px solid black;
+        }
+        
+        #menu241_1 {
+            display: flex;
+            background-color: #484848;
+            margin-bottom: 20px;
+        }
+        
+        #menu241_1 a {
+            padding: 10px 25px;
+            text-decoration: none;
+            color: #fff;
+            font: bold 14px Arial;
+        }
+        
+        #menu241_1 a:hover, #menu241_1 a.active {
+            color: #484848;
+            background-color: #fff;
+        }
+        
+        /* Дополнительные стили для остальных заданий */
+        #wrapper247 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec; 
+            color: #880e4f; 
+        }
+        
+        #task248_1 {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f3e5f5; 
+            color: #4a148c; 
+        }
+        
+        #wrapper248_2 {
+            font-family: Arial, sans-serif;
+            background-color: #eaf6e9;
+            color: #0d4413;
+            width: 80%;
+            margin: auto;
+        }
+        
+        /* Адаптивные изображения */
+        .float-left {
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Layout - Полное руководство с примерами</h1>
+    
+    <div class="task-container">
+        <h2>Task #240 - Навигационные меню</h2>
+        
+        <div class="task-container">
+            <h3>№1 - Горизонтальное меню</h3>
+            <div class="code-example">display: flex;</div>
+            <div class="menu-horizontal">
+                <a href="#">home</a>
+                <a href="#" class="active">blog</a>
+                <a href="#">photos</a>
+                <a href="#">about us</a>
+                <a href="#">contacts</a>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>№2 - Вертикальное меню</h3>
+            <div class="code-example">display: flex; flex-direction: column;</div>
+            <div class="menu-vertical">
+                <a href="#">home</a>
+                <a href="#" class="active">blog</a>
+                <a href="#">photos</a>
+                <a href="#">about us</a>
+                <a href="#">contacts</a>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>№3 - Центрированное меню</h3>
+            <div class="code-example">display: flex; justify-content: center;</div>
+            <div class="menu-centered">
+                <a href="#">home</a>
+                <a href="#" class="active">blog</a>
+                <a href="#">photos</a>
+                <a href="#">about us</a>
+                <a href="#">contacts</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="task-container">
+        <h2>Task #241 - Макеты с навигацией</h2>
+        
+        <div class="task-container">
+            <h3>№1 - Простой макет с навигацией</h3>
+            <div id="wrapper241_1">
+                <div id="menu241_1">
+                    <a href="#">home</a>
+                    <a href="#" class="active">blog</a>
+                    <a href="#">photos</a>
+                    <a href="#">about us</a>
+                    <a href="#">contacts</a>
+                </div>
+                <div id="task241_1">
+                    <h1>Proin tristique lorem</h1>
+                    <p>
+                        Lorem ipsum dolor <a href>sit amet</a>, consectetur adipiscing elit. Nulla pharetra risus erat, eu imperdiet felis suscipit at. Vivamus rhoncus vel neque non eleifend. 
+                        Donec adipiscing eros quis molestie sodales. Proin vitae nulla ut sem lobortis scelerisque. Aliquam ultricies porta sem quis fringilla. Quisque pretium enim ut elit fringilla, in adipiscing ligula placerat. 
+                        Integer id tortor tristique, facilisis lorem sit amet, porta ante. Nulla eget diam in erat hendrerit gravida.
+                    </p>
+                    <p> 
+                        Cras ut nunc metus. Nullam id faucibus ante. <a href>Proin tristique lorem</a> tristique dolor porttitor, eget adipiscing leo gravida. 
+                        Proin erat erat, laoreet sit amet tincidunt ac, iaculis nec libero. 
+                        In placerat odio ac dapibus faucibus. Praesent ut est in ligula facilisis congue eget ac ante. Phasellus at felis vitae est molestie ultricies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="task-container">
+        <h2>Task #242 - Многостраничный макет</h2>
+        
+        <div id="task242">
+            <div id="header" class="wrapper242">
+                <div class="center">
+                    <h1>Любые виды ремонтных работ</h1>
+                    <p>Выезд специалиста, замер и смета работ бесплатно</p>
+                    <p>Бесплатный дизайн проект</p>
+                    <p>Гарантия 3 года</p>
+                </div>
+            </div>
+            <div id="services" class="wrapper242">
+                <div class="center">
+                    <h2>Наши услуги</h2>
+                    <ol>
+                        <li>Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio.</li>
+                        <li>Praesent ullamcorper est ac lorem aliquet, sed tempus lacus iaculis. Pellentesque a odio pharetra, sagittis enim sit amet, euismod leo.</li>
+                        <li>Integer a sollicitudin quam. Sed laoreet finibus velit ut rhoncus. Nunc euismod neque at ligula venenatis vestibulum.</li>
+                        <li>Nunc finibus non massa in vestibulum. Etiam euismod metus ut euismod sagittis. Donec tincidunt neque a dolor posuere egestas.</li>
+                    </ol>
+                </div>
+            </div>
+            <div id="contacts" class="wrapper242">
+                <div class="center">
+                    <h2>Наши контакты</h2>
+                    <p>Телефоны: +375 29 335 29 38 МТС, +375 31 335 29 38 Velcom</p>
+                </div>
+            </div>
+            <div id="company" class="wrapper242">
+                <div class="center">
+                    <h2>Наша компания</h2>
+                    <p>Pellentesque pellentesque sem ac justo tristique pellentesque. Vestibulum semper pulvinar rutrum. Maecenas odio urna, porta sed lectus eget, fringilla posuere odio.</p>
+                    <p>Integer a sollicitudin quam. Sed laoreet finibus velit ut rhoncus. Nunc euismod neque at ligula venenatis vestibulum.</p>
+                </div>
+            </div>
+            <div id="footer242" class="wrapper242">
+                <div class="center">
+                    Строительная компания "Рога и копыта" © Все права более чем защищены.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="task-container">
+        <h2>Task #244 - Двухколоночные макеты</h2>
+        
+        <div class="task-container">
+            <h3>№1 - Sidebar слева</h3>
+            <div class="layout-wrapper">
+                <div class="layout-header">header</div>
+                <div class="layout-container">
+                    <div class="layout-sidebar left">sidebar</div>
+                    <div class="layout-content">content</div>
+                </div>
+                <div class="layout-footer">footer</div>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>№2 - Sidebar справа</h3>
+            <div class="layout-wrapper">
+                <div class="layout-header">header</div>
+                <div class="layout-container">
+                    <div class="layout-content">content</div>
+                    <div class="layout-sidebar right">sidebar</div>
+                </div>
+                <div class="layout-footer">footer</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="task-container">
+        <h2>Task #245 - Трехколоночные макеты</h2>
+        
+        <div class="task-container">
+            <h3>№1 - Боковые колонки одинаковой ширины</h3>
+            <div class="layout-wrapper">
+                <div class="layout-header">header</div>
+                <div class="layout-container">
+                    <div class="layout-sidebar left">left sidebar</div>
+                    <div class="layout-content" style="width: 640px; height: 700px;">content</div>
+                    <div class="layout-sidebar right">right sidebar</div>
+                </div>
+                <div class="layout-footer">footer</div>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>№2 - Боковые колонки разной ширины</h3>
+            <div class="layout-wrapper" style="width: 1000px;">
+                <div class="layout-header">header</div>
+                <div class="layout-container">
+                    <div class="layout-sidebar left" style="width: 250px; margin-right: 15px;">left sidebar</div>
+                    <div class="layout-content" style="width: 520px; height: 700px;">content</div>
+                    <div class="layout-sidebar right" style="width: 200px; margin-left: 15px;">right sidebar</div>
+                </div>
+                <div class="layout-footer">footer</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="task-container">
+        <h2>Task #247 - Тематический макет (Коты-аристократы)</h2>
+        
+        <div id="wrapper247">
+            <header>
+                <nav>
+                    <a href="#">Галерея</a>
+                    <a href="#">Информация</a>
+                    <a href="#">Мультфильм</a>
+                </nav>
+            </header>
+            <div id="container247">
+                <aside>
+                    <b>Мари</b> (англ. <i>Marie</i>) - является главным персонажем в фильме 1970 Disney "Коты-аристократы". 
+                    <p><b>Информация о персонаже</b></p>
+                    <b>Род занятий</b>
+                    <p>Музыкант</p>
+                    <b>Дом</b>
+                    <p>Особняк Мадам Бонфамиль</p>
+                    <b>Другие родственники</b>  
+                    <ol>
+                        <li>Герцогиня (мать)</li>
+                        <li>Тулуз (старший брат)</li>
+                        <li>Берлиоз (младший брат)</li>
+                        <li>Томас О'Мэлли (отчим)</li>
+                    </ol>
+                </aside>
+                <main>
+                    <svg class="svg-icon float-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="#f8bbd0" stroke="#880e4f" stroke-width="2"/>
+                        <circle cx="35" cy="40" r="5" fill="#880e4f"/>
+                        <circle cx="65" cy="40" r="5" fill="#880e4f"/>
+                        <path d="M 30,60 Q 50,70 70,60" stroke="#880e4f" stroke-width="3" fill="none"/>
+                        <path d="M 50,20 Q 60,15 65,25" stroke="#880e4f" stroke-width="2" fill="none"/>
+                        <path d="M 50,20 Q 40,15 35,25" stroke="#880e4f" stroke-width="2" fill="none"/>
+                    </svg>
+                    <p>
+                        <b>Мари</b> - маленький белый чистокровный турецкий Ангорский котенок. У нее длинная белая шерсть и ярко-голубые глаза с длинными ресницами; из трех котят она больше всего похожа на свою мать.   
+                        Ее нос и подушечки лап светло-розовые, и у нее есть 3 или 4 усы по обе стороны ее лица.
+                        Мари носит большой розовый бант на шее и еще один розовый бант, который меньше, украшая пучок меха на голове.
+                    </p>
+                    <p>
+                        Мари считает себя настоящей маленькой леди и поэтому старается подражать элегантности и приличиям своей матери, Герцогини. 
+                        В результате она может быть несколько чопорной и избалованной. 
+                        Хотя Мари делает усилие, чтобы казаться леди, она действительно наслаждается случайным падением со своими любимыми братьями и имеет ненасытное любопытство, 
+                        как только Томас О'Мэлли открывает глаза на чудеса Парижа.
+                    </p>
+                </main>
+            </div>
+            <footer>
+                Информация взята из Disney Wiki
+            </footer>
+        </div>
+    </div>
+    
+    <div class="task-container">
+        <h2>Task #248 - Тематические макеты</h2>
+        
+        <div class="task-container">
+            <h3>№1 - Сайт о Ёжике из Смешариков</h3>
+            <div id="task248_1">
+                <header>
+                    <h1>Ёжик из Смешариков</h1>
+                </header>
+                <div id="content248_1">
+                    <section>
+                        <h2>О Ёжике</h2>
+                        <svg class="svg-icon float-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" fill="#8bc34a" stroke="#4caf50" stroke-width="2"/>
+                            <circle cx="35" cy="40" r="8" fill="white" stroke="#4caf50" stroke-width="1"/>
+                            <circle cx="35" cy="40" r="4" fill="#4caf50"/>
+                            <circle cx="65" cy="40" r="8" fill="white" stroke="#4caf50" stroke-width="1"/>
+                            <circle cx="65" cy="40" r="4" fill="#4caf50"/>
+                            <path d="M 40,65 Q 50,75 60,65" stroke="#4caf50" stroke-width="3" fill="none"/>
+                            <path d="M 20,30 Q 10,40 25,50" stroke="#4caf50" stroke-width="2" fill="none"/>
+                            <path d="M 80,30 Q 90,40 75,50" stroke="#4caf50" stroke-width="2" fill="none"/>
+                            <path d="M 30,20 Q 40,10 50,15" stroke="#4caf50" stroke-width="2" fill="none"/>
+                            <path d="M 70,20 Q 60,10 50,15" stroke="#4caf50" stroke-width="2" fill="none"/>
+                        </svg>
+                        <p>
+                            <b>Ёжик</b> — один из главных героев мультсериала "Смешарики". Очень воспитанный и очень интеллигентный Ёжик предпочитает тихие игры и чтение умных книг. 
+                            Он носит круглые очки в старомодной толстой оправе и практически не имеет вредных привычек.
+                        </p>
+                        <p>
+                            Ёжик – большой ценитель прекрасного и любитель различных древностей и раритетов. Страстный коллекционер: собирает кактусы (потому что такие же колючие, как и он сам) и фантики от конфет (потому что красивые). 
+                            Очень отзывчивый, добрый, впечатлительный, обладает богатым воображением.
+                        </p>
+                    </section>
+                </div>
+                <footer>
+                    <p>&copy; 2023 Сайт о Ежике из Смешариков</p>
+                </footer>
+            </div>
+        </div>
+        
+        <div class="task-container">
+            <h3>№2 - Сайт о Черепашках-ниндзя</h3>
+            <div id="wrapper248_2">
+                <header>
+                    <div id="logo">
+                        <svg width="150" height="100" viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="75" cy="50" rx="70" ry="40" fill="#4caf50"/>
+                            <circle cx="60" cy="40" r="15" fill="#8bc34a"/>
+                            <circle cx="90" cy="40" r="15" fill="#8bc34a"/>
+                            <circle cx="60" cy="40" r="7" fill="#1b5e20"/>
+                            <circle cx="90" cy="40" r="7" fill="#1b5e20"/>
+                            <path d="M 50,60 Q 75,70 100,60" stroke="#1b5e20" stroke-width="3" fill="none"/>
+                            <rect x="40" y="30" width="70" height="40" rx="5" fill="#4caf50" stroke="#1b5e20" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <nav>
+                        <a href="#">О мультфильме</a>
+                        <a href="#">Персонажи</a>
+                        <a href="#">Эпизоды</a>
+                    </nav>
+                </header>
+                <div id="container248_2">
+                    <div id="left">
+                        <section>
+                            <h3>Главные противники</h3>
+                            <p>Крэнги и Шреддер</p>
+                        </section>
+                    </div>
+                    <main>
+                        <h1>Черепашки-ниндзя</h1>
+                        <section id="about">
+                            <h2>О мультфильме</h2>
+                            <div>
+                                <p><b>Черепашки-ниндзя</b> — вымышленная команда из четырёх мутировавших антропоморфных черепах-подростков: <i>Леонардо, Рафаэля, Донателло и Микеланджело</i>, которые обучаются искусству ниндзюцу со своим сэнсэем, крысой-мутантом, мастером Сплинтером.</p>
+                                <p>Устроив свою базу в канализации Нью-Йорка, они сражаются со злом на улицах города.</p>
+                            </div>
+                        </section>
+                    </main>
+                    <div id="right">
+                        <section>
+                            <h3>В оригинале</h3>
+                            <p>Teenage Mutant Ninja Turtles</p>
+                        </section>
+                    </div>
+                </div>
+                <footer>
+                    © 2024 Черепашки-ниндзя.
+                </footer>
+            </div>
+        </div>
+    </div>
+    
+    <div class="task-container">
+        <h2>Task #249 - Полноценные сайты</h2>
+        
+        <div class="task-container">
+            <h3>№1 - Сайт о меде (одноколоночный)</h3>
+            <header class="nav-header wrapper">
+                <nav id="menu">
+                    <a class="active" href="#">Main</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Our Products</a>
+                    <a href="#">Informations</a>
+                    <a href="#">Contacts</a>
+                </nav>
+            </header>
+            <div class="wrapper">
+                <main class="content">
+                    <h1>Honey Sale</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse urna ante, egestas ac nibh sit
+                        amet, vehicula posuere quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <svg class="svg-icon" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="480" height="330" rx="10" fill="#ffeb3b" stroke="#ff9800" stroke-width="2"/>
+                        <path d="M 100,100 C 150,50 350,50 400,100 C 450,150 450,250 400,300 C 350,350 150,350 100,300 C 50,250 50,150 100,100 Z" fill="#ffc107"/>
+                        <path d="M 150,120 C 200,80 300,80 350,120" stroke="#ff9800" stroke-width="3" fill="none"/>
+                        <path d="M 150,280 C 200,320 300,320 350,280" stroke="#ff9800" stroke-width="3" fill="none"/>
+                        <circle cx="250" cy="200" r="40" fill="#ffeb3b" stroke="#ff9800" stroke-width="2"/>
+                        <path d="M 210,200 A 40,40 0 1,1 290,200" stroke="#ff9800" stroke-width="2" fill="none"/>
+                    </svg>
+                    <h2>Honey Price</h2>
+                    <table class="price">
+                        <tr>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Availability</th>
+                        </tr>
+                        <tr>
+                            <td>Linden</td>
+                            <td>20$ per liter</td>
+                            <td>10 tons</td>
+                        </tr>
+                        <tr>
+                            <td>Pine</td>
+                            <td>30$ per liter</td>
+                            <td>7 tons</td>
+                        </tr>
+                    </table>
+                </main>
+            </div>
+            <footer class="page-footer wrapper">
+                www.pchela.com &copy; 2010-2015. Honey.
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

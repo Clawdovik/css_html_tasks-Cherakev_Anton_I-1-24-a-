@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задачи 186-202 - Float в CSS</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #444;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .task-section {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Task 186 - Float с изображениями */
+        #task186 {
+            width: 600px;
+            text-align: justify;
+            padding: 20px;
+            border: 2px solid #28a745;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+        #img186_1 {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa8a8);
+            width: 150px;
+            height: 150px;
+        }
+        #img186_2 {
+            float: right;
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #74b9ff, #a29bfe);
+            width: 150px;
+            height: 150px;
+        }
+        #task186 b {
+            color: #dc3545;
+        }
+        #task186 i {
+            color: #007bff;
+            font-style: italic;
+        }
+
+        /* Task 191 - Float с отступами */
+        #task191 {
+            width: 700px;
+            padding: 25px;
+            margin: 20px auto;
+            border: 2px solid #6f42c1;
+            background: #f8f9fa;
+            text-align: justify;
+            border-radius: 8px;
+        }
+        #img1 {
+            float: left;
+            margin-right: 25px;
+            margin-bottom: 15px;
+            border: 2px solid #fd7e14;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #fd7e14, #ffa94d);
+            width: 120px;
+            height: 120px;
+        }
+        #img2 {
+            float: right;
+            margin-left: 25px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #20c997;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #20c997, #63e6be);
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Task 200 - Float с одним элементом */
+        #parent200 {
+            width: 800px;
+            padding: 25px;
+            margin: 20px auto;
+            border: 2px solid #dc3545;
+            background: #f8f9fa;
+            text-align: justify;
+            border-radius: 8px;
+        }
+        #child200 {
+            float: right;
+            width: 150px;
+            height: 80px;
+            margin-top: 20px;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            border: 2px solid #28a745;
+            background: linear-gradient(45deg, #51cf66, #94d82d);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Task 201 - Float с несколькими элементами */
+        #parent201 {
+            width: 800px;
+            padding: 25px;
+            margin: 20px auto;
+            border: 2px solid #007bff;
+            background: #f8f9fa;
+            text-align: justify;
+            border-radius: 8px;
+        }
+        #child201_1, #child201_2 {
+            float: right;
+            width: 150px;
+            height: 80px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #6f42c1;
+            background: linear-gradient(45deg, #845ef7, #cc5de8);
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Task 202 - Float с clearfix */
+        #parent1, #parent2 {
+            padding: 25px;
+            border: 2px solid #343a40;
+            background: #f8f9fa;
+            margin: 20px auto;
+            width: 800px;
+            border-radius: 8px;
+        }
+        #parent1 {
+            border-color: #fd7e14;
+        }
+        #parent2 {
+            border-color: #20c997;
+        }
+        .child1 {
+            float: left;
+            background: linear-gradient(45deg, #ffa8a8, #ffc9c9);
+            border: 2px solid #dc3545;
+        }
+        .child2 {
+            float: right;
+            background: linear-gradient(45deg, #a5d8ff, #c0eb75);
+            border: 2px solid #28a745;
+        }
+        .child1, .child2 {
+            width: 120px;
+            height: 60px;
+            margin: 0 15px;
+            text-align: center;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #343a40;
+        }
+        .clearfix {
+            clear: both;
+        }
+
+        /* Демонстрационные изображения через псевдоэлементы */
+        .demo-image::before {
+            content: "🖼️";
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Информационные блоки */
+        .info-box {
+            background: #e7f5ff;
+            border-left: 4px solid #339af0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задачи 186-202 - Float в CSS</h1>
+
+    <!-- Task 186 -->
+    <div class="task-section">
+        <h2>Task#186 - Float с изображениями в тексте</h2>
+        
+        <div class="info-box">
+            <strong>Особенности:</strong> Изображение слева (float: left) и справа (float: right) с разными отступами
+        </div>
+
+        <div id="task186"> 
+            <div id="img186_1" class="demo-image"></div>
+            <b>Амур</b> – это романтичная маленькая мечтательница, которая глубоко убеждена, что ее миссия в том, чтобы влюблять людей. Феечка наивна и смелая, чувствительна. В ее понимании, <i>мир</i> – место, где люди любят друг друга, и все счастливы.
+            <div id="img186_2" class="demo-image"></div>
+            Для достижения своей мечты, Амур открыла небольшой магазин: <b>Магазин любви</b> – единственный магазин в Пиксивилле, который специализируется на любовных зельях и заклинаниях. В своем магазине и мастерской она постоянно работает над рецептами новых снадобий, способных растопить даже ледяное сердце. 
+            Благодаря своему таланту она успешно создает любовные зелья, духи и шоколад.
+        </div>
+    </div>
+
+    <!-- Task 191 -->
+    <div class="task-section">
+        <h2>Task#191 - Float с разными отступами</h2>
+        
+        <div class="info-box">
+            <strong>Особенности:</strong> Два изображения с разными значениями margin (top, bottom, left, right)
+        </div>
+
+        <div id="task191">
+            <div id="img1" class="demo-image"></div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem dolor exercitationem veritatis nobis autem ab sed minima iure, natus et voluptatibus deleniti ratione accusamus error excepturi obcaecati eligendi cupiditate? Nihil sed unde sequi consequatur dolorum inventore commodi omnis adipisci, error tenetur corrupti? Eligendi, quae dolorum! 
+            <div id="img2" class="demo-image"></div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis eligendi libero atque sit iusto assumenda sed, consequatur quo nostrum repellat sint, delectus quas est alias ducimus tenetur deserunt magni expedita! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut laboriosam recusandae ipsum eveniet autem sit doloremque corporis eligendi optio et voluptatum mollitia enim minus, deserunt ratione.
+        </div>
+    </div>
+
+    <!-- Task 200 -->
+    <div class="task-section">
+        <h2>Task#200 - Float с одним плавающим элементом</h2>
+        
+        <div class="info-box">
+            <strong>Особенности:</strong> Один плавающий блок справа, текст обтекает его
+        </div>
+
+        <div id="parent200">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ea et autem ex optio vitae eligendi aliquam unde aperiam earum reprehenderit explicabo quia ipsa nam, illum nisi dolor nulla temporibus laborum incidunt adipisci magni non? Temporibus sapiente sit, odit, minima rem quam veritatis distinctio dignissimos consequatur earum dolorum modi incidunt! 
+            <div id="child200">Floating Block</div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem fugit ad repellendus accusantium labore, sed iste, voluptatem officiis nostrum iure, sunt deleniti vel totam repudiandae reprehenderit. Itaque sed rerum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam incidunt nobis nisi atque magni fugiat amet odit facilis rem exercitationem eveniet voluptatibus nulla ipsa sed odio, a unde. Voluptatibus dicta reprehenderit provident eveniet laborum, unde consectetur quis explicabo. Modi qui provident architecto illo eaque repudiandae fuga reiciendis esse, distinctio sunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aspernatur autem iste animi quasi temporibus quod voluptates hic, maxime, saepe similique ipsa nisi quas molestiae ex quidem! Vero architecto accusantium fugit repellat ut autem commodi asperiores eos quaerat. Voluptatem accusamus doloribus quisquam eum vel labore assumenda ea asperiores placeat exercitationem!
+        </div>
+    </div>
+
+    <!-- Task 201 -->
+    <div class="task-section">
+        <h2>Task#201 - Float с несколькими плавающими элементами</h2>
+        
+        <div class="info-box">
+            <strong>Особенности:</strong> Два плавающих блока справа, расположенных вертикально
+        </div>
+
+        <div id="parent201">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ea et autem ex optio vitae eligendi aliquam unde aperiam earum reprehenderit explicabo quia ipsa nam, illum nisi dolor nulla temporibus laborum incidunt adipisci magni non? Temporibus sapiente sit, odit, minima rem quam veritatis distinctio dignissimos consequatur earum dolorum modi incidunt! 
+            <div id="child201_1">Block 1</div>
+            <div id="child201_2">Block 2</div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem fugit ad repellendus accusantium labore, sed iste, voluptatem officiis nostrum iure, sunt deleniti vel totam repudiandae reprehenderit. Itaque sed rerum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam incidunt nobis nisi atque magni fugiat amet odit facilis rem exercitationem eveniet voluptatibus nulla ipsa sed odio, a unde. Voluptatibus dicta reprehenderit provident eveniet laborum, unde consectetur quis explicabo. Modi qui provident architecto illo eaque repudiandae fuga reiciendis esse, distinctio sunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aspernatur autem iste animi quasi temporibus quod voluptates hic, maxime, saepe similique ipsa nisi quas molestiae ex quidem! Vero architecto accusantium fugit repellat ut autem commodi asperiores eos quaerat. Voluptatem accusamus doloribus quisquam eum vel labore assumenda ea asperiores placeat exercitationem!
+        </div>
+    </div>
+
+    <!-- Task 202 -->
+    <div class="task-section">
+        <h2>Task#202 - Float с clearfix</h2>
+        
+        <div class="info-box">
+            <strong>Особенности:</strong> Группы плавающих элементов с очисткой обтекания
+        </div>
+
+        <h3>№1 - Float: left</h3>
+        <div id="parent1">
+            <div class="child1">text 1</div>
+            <div class="child1">text 2</div>
+            <div class="child1">text 3</div>
+            <div class="child1">text 4</div>
+            <div class="child1">text 5</div>
+            <div class="clearfix"></div>
+            <p style="margin-top: 20px; color: #666;">Текст после clearfix - находится под плавающими элементами</p>
+        </div>
+
+        <h3>№2 - Float: right</h3>
+        <div id="parent2">
+            <div class="child2">text 1</div>
+            <div class="child2">text 2</div>
+            <div class="child2">text 3</div>
+            <div class="child2">text 4</div>
+            <div class="child2">text 5</div>
+            <div class="clearfix"></div>
+            <p style="margin-top: 20px; color: #666;">Текст после clearfix - находится под плавающими элементами</p>
+        </div>
+    </div>
+
+</body>
+</html>

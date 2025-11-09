@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы HTML - Все задания</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+        }
+        .task {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            background-color: #f9f9f9;
+        }
+        .task-number {
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .svg-container {
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Основы HTML - Все задания</h1>
+    
+    <!-- Навигация по страницам -->
+    <div class="task">
+        <div class="task-number">Навигация по сайту</div>
+        <ul>
+            <li><a href="#task1">Задание 1: Основная структура</a></li>
+            <li><a href="#task2">Задание 2: Абзацы</a></li>
+            <li><a href="#task3">Задание 3: Заголовки</a></li>
+            <li><a href="#task4">Задание 4: Жирный текст</a></li>
+            <li><a href="#task5">Задание 5: Курсив</a></li>
+            <li><a href="#task6">Задание 6: Неупорядоченные списки</a></li>
+            <li><a href="#task7">Задание 7: Упорядоченные списки</a></li>
+            <li><a href="#task8">Задание 8: Ссылки</a></li>
+            <li><a href="#task9">Задание 9: Внутренние ссылки</a></li>
+            <li><a href="#task10">Задание 10-13: Изображения</a></li>
+            <li><a href="#task14">Задание 14: Таблицы</a></li>
+            <li><a href="#task15">Задание 15: Размеры таблицы</a></li>
+            <li><a href="#task16">Задание 16: Заголовки таблицы</a></li>
+            <li><a href="#task17">Задание 17: Иерархия заголовков</a></li>
+            <li><a href="#task18">Задание 18: CMS</a></li>
+            <li><a href="#task19">Задание 19: Создание сайтов</a></li>
+        </ul>
+    </div>
+    
+    <!-- Задание 1: Основная структура страницы HTML -->
+    <div class="task" id="task1">
+        <div class="task-number">1) Основная структура страницы HTML</div>
+        <p>Эта страница создана с использованием базовой структуры HTML документа.</p>
+    </div>
+    
+    <!-- Задание 2: Теги для абзацев -->
+    <div class="task" id="task2">
+        <div class="task-number">2) Теги для абзацев</div>
+        <p>Это первый абзац текста. HTML (HyperText Markup Language) - это стандартный язык разметки для создания веб-страниц.</p>
+        <p>Это второй абзац. Он описывает структуру веб-страницы с помощью различных элементов и тегов.</p>
+        <p>Третий абзац: HTML элементы сообщают браузеру, как отображать контент на странице.</p>
+        <p>Четвертый абзац: HTML был создан Тимом Бернерсом-Ли в 1991 году и с тех пор постоянно развивается.</p>
+        <p>Пятый абзац: Современный HTML5 включает множество новых семантических элементов и API для создания интерактивных веб-приложений.</p>
+    </div>
+    
+    <!-- Задание 3: Теги для заголовков страницы -->
+    <div class="task" id="task3">
+        <div class="task-number">3) Теги для заголовков страницы</div>
+        <h1>Heading h1</h1>
+        <h2>Heading h2</h2>
+        <h3>Heading h3</h3>
+        <h4>Heading h4</h4>
+        <h5>Heading h5</h5>
+        <h6>Heading h6</h6>
+        
+        <h1>Главный заголовок страницы</h1>
+        <h2>Первый подзаголовок</h2>
+        <p>Это абзац текста под первым подзаголовком. Он содержит информацию, относящуюся к теме этого раздела.</p>
+        
+        <h2>Второй подзаголовок</h2>
+        <p>Первый абзац под вторым подзаголовком. Здесь может быть дополнительная информация по теме.</p>
+        <p>Второй абзац под вторым подзаголовком. Этот текст продолжает раскрывать тему, начатую в предыдущем абзаце.</p>
+    </div>
+    
+    <!-- Задание 4: Теги для выделения текста жирным -->
+    <div class="task" id="task4">
+        <div class="task-number">4) Теги для выделения текста жирным</div>
+        <p>Это обычный текст, а это <b>жирный текст</b> созданный с помощью тега &lt;b&gt;.</p>
+        <p>Также можно использовать тег &lt;strong&gt; для <strong>семантически важного текста</strong>.</p>
+    </div>
+    
+    <!-- Задание 5: Теги для выделения текста курсивом -->
+    <div class="task" id="task5">
+        <div class="task-number">5) Теги для выделения текста курсивом</div>
+        <p>Это обычный текст, а это <i>текст курсивом</i> созданный с помощью тега &lt;i&gt;.</p>
+        <p>Также можно использовать тег &lt;em&gt; для <em>акцентированного текста</em>.</p>
+    </div>
+    
+    <!-- Задание 6: Неупорядоченные списки в HTML -->
+    <div class="task" id="task6">
+        <div class="task-number">6) Неупорядоченные списки в HTML (маркер списка)</div>
+        <ul>
+            <li style="color: red;">red</li>
+            <li style="color: yellow; background-color: black;">yellow</li>
+            <li style="color: green;">green</li>
+            <li style="color: blue;">blue</li>
+            <li style="color: white; background-color: black;">black</li>
+        </ul>
+    </div>
+    
+    <!-- Задание 7: Упорядоченные списки в HTML -->
+    <div class="task" id="task7">
+        <div class="task-number">7) Упорядоченные списки в HTML</div>
+        <ol>
+            <li>Nick</li>
+            <li>John</li>
+            <li>Mary</li>
+            <li>Jane</li>
+            <li>Alex</li>
+        </ol>
+    </div>
+    
+    <!-- Задание 8: Работа со ссылками в HTML -->
+    <div class="task" id="task8">
+        <div class="task-number">8) Работа со ссылками в HTML</div>
+        <p>Ссылка на сайт code.mu: <a href="https://code.mu" target="_blank">code.mu</a></p>
+        <p>Ссылка на Яндекс: <a href="https://yandex.ru" target="_blank">Яндекс</a></p>
+        <p>Ссылка на YouTube: <a href="https://youtube.com" target="_blank">YouTube</a></p>
+        <p>Что это может быть?: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Скример или тайное послание?</a></p>
+    </div>
+    
+    <!-- Задание 9: Внутренние ссылки в HTML -->
+    <div class="task" id="task9">
+        <div class="task-number">9) Внутренние ссылки в HTML</div>
+        <p>Ссылки на разделы этой страницы:</p>
+        <ul>
+            <li><a href="#task1">Задание 1: Основная структура</a></li>
+            <li><a href="#task2">Задание 2: Абзацы</a></li>
+            <li><a href="#task3">Задание 3: Заголовки</a></li>
+            <li><a href="#task4">Задание 4: Жирный текст</a></li>
+            <li><a href="#task5">Задание 5: Курсив</a></li>
+        </ul>
+    </div>
+    
+    <!-- Задания 10-13: Работа с изображениями в HTML -->
+    <div class="task" id="task10">
+        <div class="task-number">10) Работа с изображениями в HTML</div>
+        <div class="svg-container">
+            <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#f0f0f0"/>
+                <circle cx="200" cy="150" r="80" fill="#4CAF50"/>
+                <text x="200" y="150" font-family="Arial" font-size="20" text-anchor="middle" fill="white">SVG Image</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="task">
+        <div class="task-number">11) Ширина картинки</div>
+        <div class="svg-container">
+            <svg width="300" height="225" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#e0e0e0"/>
+                <rect x="50" y="50" width="200" height="125" fill="#2196F3"/>
+                <text x="150" y="125" font-family="Arial" font-size="16" text-anchor="middle" fill="white">Width: 300px</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="task">
+        <div class="task-number">12) Высота картинки</div>
+        <div class="svg-container">
+            <svg width="267" height="100" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#d0d0d0"/>
+                <polygon points="133,20 233,80 133,80 33,80" fill="#FF9800"/>
+                <text x="133" y="60" font-family="Arial" font-size="12" text-anchor="middle" fill="white">Height: 100px</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="task">
+        <div class="task-number">13) Ширина и высота</div>
+        <p>Искаженные пропорции:</p>
+        <div class="svg-container">
+            <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#c0c0c0"/>
+                <ellipse cx="150" cy="50" rx="140" ry="40" fill="#9C27B0"/>
+                <text x="150" y="50" font-family="Arial" font-size="10" text-anchor="middle" fill="white">Distorted</text>
+            </svg>
+        </div>
+        <p>Сохраненные пропорции:</p>
+        <div class="svg-container">
+            <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#b0b0b0"/>
+                <ellipse cx="150" cy="100" rx="140" ry="80" fill="#E91E63"/>
+                <text x="150" y="100" font-family="Arial" font-size="14" text-anchor="middle" fill="white">Normal Proportions</text>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Задание 14: Работа с таблицами в HTML -->
+    <div class="task" id="task14">
+        <div class="task-number">14) Работа с таблицами в HTML</div>
+        <p>Таблица с тремя рядами и пятью ячейками в каждом:</p>
+        <table>
+            <tr>
+                <td>Ячейка 1-1</td>
+                <td>Ячейка 1-2</td>
+                <td>Ячейка 1-3</td>
+                <td>Ячейка 1-4</td>
+                <td>Ячейка 1-5</td>
+            </tr>
+            <tr>
+                <td>Ячейка 2-1</td>
+                <td>Ячейка 2-2</td>
+                <td>Ячейка 2-3</td>
+                <td>Ячейка 2-4</td>
+                <td>Ячейка 2-5</td>
+            </tr>
+            <tr>
+                <td>Ячейка 3-1</td>
+                <td>Ячейка 3-2</td>
+                <td>Ячейка 3-3</td>
+                <td>Ячейка 3-4</td>
+                <td>Ячейка 3-5</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Задание 15: Ширина и высота таблицы в HTML -->
+    <div class="task" id="task15">
+        <div class="task-number">15) Ширина и высота таблицы в HTML</div>
+        <p>Таблица с шириной 400px и высотой 300px:</p>
+        <table style="width: 400px; height: 300px;">
+            <tr>
+                <td>Ячейка 1-1</td>
+                <td>Ячейка 1-2</td>
+                <td>Ячейка 1-3</td>
+            </tr>
+            <tr>
+                <td>Ячейка 2-1</td>
+                <td>Ячейка 2-2</td>
+                <td>Ячейка 2-3</td>
+            </tr>
+            <tr>
+                <td>Ячейка 3-1</td>
+                <td>Ячейка 3-2</td>
+                <td>Ячейка 3-3</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Задание 16: Ячейки-заголовки в таблице в HTML -->
+    <div class="task" id="task16">
+        <div class="task-number">16) Ячейки-заголовки в таблице в HTML</div>
+        <table border="1" width="300">
+            <tr>
+                <th>Продукт</th>
+                <th>Цена</th>
+                <th>Количество</th>
+            </tr>
+            <tr>
+                <td>Яблоко</td>
+                <td>100 руб.</td>
+                <td>5 кг</td>
+            </tr>
+            <tr>
+                <td>Апельсин</td>
+                <td>200 руб.</td>
+                <td>6 кг</td>
+            </tr>
+            <tr>
+                <td>Банан</td>
+                <td>300 руб.</td>
+                <td>7 кг</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Задание 17: Практическое задание: базовая структура с иерархией заголовков -->
+    <div class="task" id="task17">
+        <div class="task-number">17) Практическое задание: базовая структура с иерархией заголовков</div>
+        <h1>Main page title</h1>
+        <p>Paragraph with text.</p>
+        
+        <h2>Secondary heading 1</h2>
+        <p>Paragraph with text.</p>
+        <p>Paragraph with text.</p>
+        <p>Paragraph with text.</p>
+        
+        <h2>Secondary heading 2</h2>
+        <p>Paragraph with text.</p>
+        <p>Paragraph with text.</p>
+        <p>Paragraph with text.</p>
+        
+        <h2>Secondary heading 3</h2>
+        <p>Paragraph with text.</p>
+        <p>Paragraph with text.</p>
+        <p>Paragraph with text.</p>
+    </div>
+    
+    <!-- Задание 18: Практическое задание: Текст и всякое -->
+    <div class="task" id="task18">
+        <div class="task-number">18) Практическое задание: Текст и всякое</div>
+        <h1>Что такое CMS</h1>
+        
+        <p><strong>CMS</strong> - "система управления контентом" (<strong>движок</strong>) - написанная PHP-программистами основа для сайта, с помощью которой вы сможете управлять сайтом (добавлять контент, менять пункты меню и т.п.) не зная HTML и CSS.</p>
+        
+        <p>Однако, для того чтобы сделать сайт с помощью <strong>CMS</strong> потребуются услуги и программиста, и дизайнера, и верстальщика. И капиталовложения.</p>
+        
+        <h2>Какие бывают CMS</h2>
+        <p>Бывают различные системы управления контентом: для интернет-магазинов, для блогов, для форумов и т.д.</p>
+        
+        <h2>Примеры CMS</h2>
+        <p><em>Примеры популярных CMS</em>: Joomla, WordPress (для блогов), phpBB (для форумов).</p>
+        
+        <h2>CMS-движки</h2>
+        <p>Бывают <em>платные</em> и <em>бесплатные</em>.</p>
+    </div>
+    
+    <!-- Задание 19: Практическое задание: Текст и всякое -->
+    <div class="task" id="task19">
+        <div class="task-number">19) Практическое задание: Текст и всякое</div>
+        <h1>Что нужно знать, чтобы делать сайты</h1>
+        <ol>
+            <li><b>HTML</b></li>
+            <li><b>CSS</b></li>
+            <li><b>PHP</b></li>
+            <li><b>SQL</b></li>
+            <li><b>JavaScript</b></li>
+            <li><b>jQuery</b></li>
+            <li><b>Flash</b></li>
+            <li><b>SEO</b></li>
+        </ol>
+        
+        <h2>PHP и JavaScript</h2>
+        <p>Языки программирования <b>PHP</b> и <b>JavaScript</b> позволяют сделать сайт динамичным, то есть реагирующим на действия пользователя. Например, можно сделать красивую выпадающую меню или слайдер.</p>
+        
+        <h2>Виды скриптов</h2>
+        <p>Для этого пишутся скрипты (англ. <i>script</i> - "сценарий") - программы, позволяющие реагировать на действия пользователя. Скрипты бывают двух видов:</p>
+        <ul>
+            <li>те, которые выполняются на сервере, а результат их выполнения приходит в браузер к пользователю уже в готовом виде. Это скрипты, написанные на языке <b>PHP</b>. На нем пишутся <b>CMS-ки</b> - системы управления контентом.</li>
+            <li>те, которые выполняются прямо в браузере пользователя. Это скрипты, написанные на языке <b>JavaScript</b>. Они чаще всего используются для того, чтобы сделать страницу более удобной и красивой.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

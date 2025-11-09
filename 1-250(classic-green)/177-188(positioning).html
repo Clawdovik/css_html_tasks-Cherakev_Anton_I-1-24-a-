@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задачи 174-185 - Позиционирование в CSS</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            position: relative;
+            min-height: 2000px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #444;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .task-section {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Task 174 - Absolute positioning */
+        #elem174_1 {
+            border: 2px solid #dc3545;
+            left: 40px;
+            top: 40px;
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        #elem174_2 {
+            border: 2px solid #007bff;
+            left: 110px;
+            top: 110px;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        #elem174_3 {
+            border: 2px solid #28a745;
+            left: 180px;
+            top: 180px;
+            background: rgba(40, 167, 69, 0.1);
+        }
+
+        #elem174_1, #elem174_2, #elem174_3{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+        }
+
+        #elem174_4 {
+            border: 2px solid #dc3545;
+            left: 40px;
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        #elem174_5 {
+            border: 2px solid #007bff;
+            left: 110px;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        #elem174_6 {
+            border: 2px solid #28a745;
+            left: 180px;
+            background: rgba(40, 167, 69, 0.1);
+        }
+
+        #elem174_4, #elem174_5, #elem174_6{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 300px;
+        }
+
+        #elem174_7 {
+            border: 2px solid #dc3545;
+            left: 40px;
+            top: 420px;
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        #elem174_8 {
+            border: 2px solid #007bff;
+            left: 70px;
+            top: 450px;
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        #elem174_9 {
+            border: 2px solid #28a745;
+            left: 100px;
+            top: 480px;
+            background: rgba(40, 167, 69, 0.1);
+        }
+
+        #elem174_7, #elem174_8, #elem174_9{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+        }
+
+        #elem174_10 {
+            background-color: #FF8888;
+            left: 40px;
+            top: 600px;
+        }
+
+        #elem174_11 {
+            background-color: #7E89EB;
+            left: 70px;
+            top: 630px;
+        }
+
+        #elem174_12 {
+            background-color: #4DEE99;
+            left: 100px;
+            top: 660px;
+        }
+
+        #elem174_10, #elem174_11, #elem174_12{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            border-radius: 8px;
+        }
+
+        /* Task 175 - Relative positioning */
+        #elem175_1 {
+            position: relative;
+            top: 20px;
+            left: 40px;
+            background-color: #FF8888;
+            border: 2px solid #dc3545;
+        }
+        #elem175_2 {
+            position: relative;
+            top: 10px;
+            left: 80px;
+            background-color: #7E89EB;
+            border: 2px solid #007bff;
+        }
+        #elem175_3 {
+            position: relative;
+            left: 120px;
+            background-color: #4DEE99;
+            border: 2px solid #28a745;
+        }
+
+        #elem175_1, #elem175_2, #elem175_3 {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .text-flow {
+            margin-top: 150px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #6c757d;
+        }
+
+        /* Task 176 - Complex absolute positioning */
+        #parent1 {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            margin: 20px auto;
+            border: 3px solid #28a745;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        #child1 {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            border: 2px solid #dc3545;
+            width: 120px;
+            height: 120px;
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: 8px;
+        }
+
+        #parent2{
+            position: relative;
+            width: 500px;
+            height: 400px;
+            margin: 20px auto;
+            background-color: #4DEE99;
+            border-radius: 8px;
+        }
+
+        #child2_1{
+            position: absolute;
+            right: 50px;
+            bottom: 50px;
+            background-color: #fff;
+            border: 2px solid #007bff;
+        }
+
+        #child2_2{
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            background-color: #fff;
+            border: 2px solid #dc3545;
+        }
+
+        #child2_1, #child2_2{
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+        }
+
+        #parent3{
+            position: relative;
+            width: 250px;
+            height: 450px;
+            margin: 20px auto;
+            border: 3px solid #343a40;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        #child3_1{
+            top: 50px;
+            border: 2px solid #343a40;
+            background-color: #dc3545;
+        }
+
+        #child3_2{
+            top: 160px;
+            border: 2px solid #343a40;
+            background-color: #ffc107;
+        }
+
+        #child3_3{
+            top: 270px;
+            border: 2px solid #343a40;
+            background-color: #28a745;
+        }
+
+        #child3_1, #child3_2, #child3_3{
+            position: absolute;
+            left: 75px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+        }
+
+        #parent4{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            background-color: #4DEE99;
+            border-radius: 250px;
+            border: 3px solid #28a745;
+        }
+
+        #child4_1{
+           top:70px;
+           right: 100px;
+           height: 100px;
+           width: 100px;
+           border-radius: 50px;
+        }
+
+        #child4_2{
+            top:70px;
+            left: 100px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px; 
+        }
+
+        #child4_3{
+            top: 200px;
+            left: 200px;
+            width: 100px;
+            height:100px;
+        }
+
+        #child4_4{
+            left: 150px;
+            top: 350px;
+            width: 200px;
+            height: 30px;
+        }
+
+        #child4_1, #child4_2, #child4_3, #child4_4{
+            position: absolute;
+            background-color: #fff;
+            border: 2px solid #6c757d;
+        }
+
+        #parent5{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 20px auto;
+            background-color: #C4CD14;
+            border-radius: 200px;
+            border: 3px solid #9da811;
+        }
+
+        #child5_1{
+            position: absolute;
+            right: 80px;
+            top: 70px;
+            width: 80px;
+            height: 80px;
+            z-index: 1;
+            border-radius: 40px;
+            background-color: #fff;
+            border: 2px solid #6c757d;
+        }
+
+        #child5_2{
+            position: absolute;
+            left: 80px;
+            top: 70px;
+            width: 80px;
+            height: 80px;
+            z-index: 1;
+            border-radius: 40px;
+            background-color: #fff;
+            border: 2px solid #6c757d;
+        }
+
+        #child5_3{
+            position: absolute;
+            left: 160px;
+            top: 200px;
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            z-index: 1;
+            background-color: #fff;
+            border: 2px solid #6c757d;
+        }
+
+        #child5_4{
+            position: absolute;
+            left: 100px;
+            top: 150px;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background-color: #fff;
+            border: 2px solid #6c757d;
+        }
+
+        #child5_5{
+            background-color: #C4CD14;
+            position: absolute;
+            left: 50px;
+            top: 30px;
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
+            border: 2px solid #9da811;
+        }
+
+        /* Task 179 - Absolute positioning with all sides */
+        #elem179{
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            bottom: 100px;
+            left: 100px;
+            border: 3px solid #e83e8c;
+            background: rgba(232, 62, 140, 0.1);
+            border-radius: 8px;
+        }
+
+        #elem179_2{
+            position: absolute;
+            top: 100px;
+            right: 200px;
+            bottom: 50px;
+            left: 10px;
+            border: 3px solid #6f42c1;
+            background: rgba(111, 66, 193, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Task 180 - Relative parent, absolute children */
+        #parent180{
+            position: relative;
+            width: 400px;
+            height: 250px;
+            margin: 20px auto;
+            border: 3px solid #28a745;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        #child180_1 {
+            left: -60px;
+            background: rgba(220, 53, 69, 0.2);
+            border: 2px solid #dc3545;
+        }
+
+        #child180_2 {
+            right: -60px;
+            background: rgba(0, 123, 255, 0.2);
+            border: 2px solid #007bff;
+        }
+
+        #child180_1, #child180_2{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        /* Task 182 - Fixed positioning */
+        #elem182_1{
+            position: fixed;
+            top:0;
+            left: 0;
+            height: 60px;
+            width: 100%;
+            background-color: #C4CD14;
+            border-bottom: 3px solid #9da811;
+            color: white;
+            text-align: center;
+            line-height: 60px;
+            font-size: 21px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        #elem182_2{
+            border: 3px solid #C4CD14;
+            width: 700px;
+            margin: 80px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Task 184-185 - Z-index */
+        .z-index-section {
+            height: 600px;
+            position: relative;
+            margin: 40px 0;
+        }
+
+        #elem184_1{
+            background-color: #ff8888;
+            left: 50px;
+            top: 50px;
+        }
+
+        #elem184_2{
+            background-color: #7e89eb;
+            left: 80px;
+            top: 80px;
+            z-index: 1;
+        }
+
+        #elem184_3{
+            background-color: #4dee99;
+            left: 110px;
+            top: 110px;
+        }
+
+        #elem184_4 {
+            background-color: #ff8888;
+            left: 50px;
+            top: 250px;
+            z-index: 2;
+        }
+
+        #elem184_5{
+            background-color: #7e89eb;
+            left: 80px;
+            top: 280px;
+            z-index: 1;
+        }
+
+        #elem184_6{
+            background-color: #4dee99;
+            left: 110px;
+            top: 310px;
+        }
+
+        #elem184_7{
+            background-color: #ff8888;
+            left: 50px;
+            top: 450px;
+        }
+
+        #elem184_8{
+            background-color: #7e89eb;
+            left: 80px;
+            top: 480px;
+            z-index: -1;
+        }
+
+        #elem184_9{
+            background-color: #4dee99;
+            left: 110px;
+            top: 510px; 
+        }
+
+        #elem184_1, #elem184_2, #elem184_3, #elem184_4, #elem184_5, #elem184_6, #elem184_7, #elem184_8, #elem184_9{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            border: 2px solid #343a40;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div id="elem182_1">Новостной портал</div>
+
+    <h1>Задачи 174-185 - Позиционирование в CSS</h1>
+
+    <!-- Task 174 -->
+    <div class="task-section">
+        <h2>Task 174 - Absolute Positioning (Разное расположение)</h2>
+        
+        <h3>Диагональное расположение</h3>
+        <div id="elem174_1">1</div>
+        <div id="elem174_2">2</div>
+        <div id="elem174_3">3</div>
+
+        <h3>Горизонтальное расположение</h3>
+        <div id="elem174_4">4</div>
+        <div id="elem174_5">5</div>
+        <div id="elem174_6">6</div>
+
+        <h3>Ступенчатое расположение</h3>
+        <div id="elem174_7">7</div>
+        <div id="elem174_8">8</div>
+        <div id="elem174_9">9</div>
+
+        <h3>Цветные блоки со смещением</h3>
+        <div id="elem174_10">10</div>
+        <div id="elem174_11">11</div>
+        <div id="elem174_12">12</div>
+    </div>
+
+    <!-- Task 175 -->
+    <div class="task-section">
+        <h2>Task 175 - Relative Positioning (Относительное позиционирование)</h2>
+        
+        <div id="elem175_1">Block 1</div>
+        <div id="elem175_2">Block 2</div>
+        <div id="elem175_3">Block 3</div>
+        
+        <div class="text-flow">
+            <strong>Особенность relative positioning:</strong> Элементы смещаются от своего нормального положения в потоке, но пространство, которое они занимали, остается зарезервированным.
+        </div>
+    </div>
+
+    <!-- Task 176 -->
+    <div class="task-section">
+        <h2>Task 176 - Complex Absolute Positioning</h2>
+        
+        <h3>№1 - Простое абсолютное позиционирование</h3>
+        <div id="parent1">
+            <div id="child1">Child</div>
+        </div>
+
+        <h3>№2 - Угловое позиционирование</h3>
+        <div id="parent2">
+            <div id="child2_1">Right Bottom</div>
+            <div id="child2_2">Left Top</div>
+        </div>
+
+        <h3>№3 - Вертикальное выравнивание</h3>
+        <div id="parent3">
+            <div id="child3_1"></div>
+            <div id="child3_2"></div>
+            <div id="child3_3"></div>
+        </div>
+
+        <h3>№4 - Круговая композиция</h3>
+        <div id="parent4">
+            <div id="child4_1"></div>
+            <div id="child4_2"></div>
+            <div id="child4_3"></div>
+            <div id="child4_4"></div>
+        </div>
+
+        <h3>№5 - Сложная круговая композиция с z-index</h3>
+        <div id="parent5">
+            <div id="child5_1"></div>
+            <div id="child5_2"></div>
+            <div id="child5_3"></div>
+            <div id="child5_4"></div>
+            <div id="child5_5"></div>
+        </div>
+    </div>
+
+    <!-- Task 179 -->
+    <div class="task-section">
+        <h2>Task 179 - Absolute Positioning with All Sides</h2>
+        
+        <h3>№1 - Равномерные отступы</h3>
+        <div id="elem179">top: 100px, right: 100px, bottom: 100px, left: 100px</div>
+
+        <h3>№2 - Разные отступы</h3>
+        <div id="elem179_2">top: 100px, right: 200px, bottom: 50px, left: 10px</div>
+    </div>
+
+    <!-- Task 180 -->
+    <div class="task-section">
+        <h2>Task 180 - Relative Parent with Absolute Children</h2>
+        
+        <div id="parent180">
+            <div id="child180_1">Left -50px</div>
+            <div id="child180_2">Right -50px</div>
+        </div>
+    </div>
+
+    <!-- Task 182 -->
+    <div class="task-section">
+        <h2>Task 182 - Fixed Positioning (Фиксированный заголовок)</h2>
+        
+        <div id="elem182_2">
+            <p><strong>Фиксированная панель сверху</strong> остается на месте при прокрутке страницы.</p>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin ultrices dictum. Nullam 
+            non diam vestibulum, interdum nibh quis, sollicitudin sem. Vivamus sit amet sagittis massa. Cras 
+            aliquet lacus at interdum blandit. Quisque quis tellus nunc. Cras at nisi laoreet, suscipit nibh 
+            quis, pellentesque diam.</p>
+            
+            <p>Sed non ante vitae nunc lacinia tristique nec quis nisl. Integer a fringilla elit, vitae accumsan 
+            massa. Fusce ac tempor est. In ultricies mi sit amet nunc posuere eleifend. Cras vulputate 
+            hendrerit sodales.</p>
+            
+            <p>Mauris et metus vitae lectus interdum auctor non sit amet odio. Morbi laoreet feugiat dapibus. 
+            Nulla ultricies sollicitudin est id blandit. Fusce justo nisl, tristique id fringilla ut, 
+            consectetur eu purus.</p>
+            
+            <p>Donec accumsan ut sem in tincidunt. Sed nunc felis, fermentum eu lacinia dictum, dictum congue 
+            ipsum. Nam et enim eu massa dapibus pellentesque ac id lorem.</p>
+            
+            <p>Ut at pellentesque turpis. Nulla condimentum accumsan lorem at semper. Nunc dapibus luctus nulla 
+            vehicula molestie. Aliquam consectetur nisi non elit blandit, sit amet viverra elit vestibulum.</p>
+        </div>
+    </div>
+
+    <!-- Task 184-185 -->
+    <div class="task-section">
+        <h2>Task 184-185 - Z-index (Управление слоями)</h2>
+        
+        <div class="z-index-section">
+            <h3>Группа 1: Без z-index (стандартный порядок)</h3>
+            <div id="elem184_1">1 (no z-index)</div>
+            <div id="elem184_2">2 (z-index: 1)</div>
+            <div id="elem184_3">3 (no z-index)</div>
+
+            <h3>Группа 2: С z-index</h3>
+            <div id="elem184_4">4 (z-index: 2)</div>
+            <div id="elem184_5">5 (z-index: 1)</div>
+            <div id="elem184_6">6 (no z-index)</div>
+
+            <h3>Группа 3: Отрицательный z-index</h3>
+            <div id="elem184_7">7 (no z-index)</div>
+            <div id="elem184_8">8 (z-index: -1)</div>
+            <div id="elem184_9">9 (no z-index)</div>
+        </div>
+    </div>
+
+    <!-- Пустое пространство для демонстрации прокрутки -->
+    <div style="height: 1000px; background: linear-gradient(180deg, #f8f9fa, #e9ecef); margin: 40px 0; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 18px;">
+        Прокрутите вниз, чтобы увидеть фиксированную панель в действии
+    </div>
+
+</body>
+</html>
